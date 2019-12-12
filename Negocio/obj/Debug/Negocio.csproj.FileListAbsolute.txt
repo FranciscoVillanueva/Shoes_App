@@ -1,0 +1,17 @@
+C:\Users\Curso\source\repos\ShoesApp\Negocio\obj\Debug\Negocio.csprojAssemblyReference.cache
+C:\Users\Curso\source\repos\ShoesApp\Negocio\obj\Debug\Negocio.csproj.CoreCompileInputs.cache
+C:\Users\Curso\source\repos\ShoesApp\Negocio\bin\Debug\Negocio.dll.config
+C:\Users\Curso\source\repos\ShoesApp\Negocio\bin\Debug\Negocio.dll
+C:\Users\Curso\source\repos\ShoesApp\Negocio\bin\Debug\Negocio.pdb
+C:\Users\Curso\source\repos\ShoesApp\Negocio\bin\Debug\Datos.dll
+C:\Users\Curso\source\repos\ShoesApp\Negocio\bin\Debug\Entidades.dll
+C:\Users\Curso\source\repos\ShoesApp\Negocio\bin\Debug\EntityFramework.dll
+C:\Users\Curso\source\repos\ShoesApp\Negocio\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Curso\source\repos\ShoesApp\Negocio\bin\Debug\Datos.pdb
+C:\Users\Curso\source\repos\ShoesApp\Negocio\bin\Debug\Datos.dll.config
+C:\Users\Curso\source\repos\ShoesApp\Negocio\bin\Debug\Entidades.pdb
+C:\Users\Curso\source\repos\ShoesApp\Negocio\bin\Debug\EntityFramework.xml
+C:\Users\Curso\source\repos\ShoesApp\Negocio\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Curso\source\repos\ShoesApp\Negocio\obj\Debug\Negocio.csproj.CopyComplete
+C:\Users\Curso\source\repos\ShoesApp\Negocio\obj\Debug\Negocio.dll
+C:\Users\Curso\source\repos\ShoesApp\Negocio\obj\Debug\Negocio.pdb
