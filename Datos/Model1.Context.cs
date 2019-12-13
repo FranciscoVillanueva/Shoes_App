@@ -39,13 +39,13 @@ namespace Datos
         public virtual DbSet<database_firewall_rules> database_firewall_rules { get; set; }
         public virtual DbSet<database_firewall_rules1> database_firewall_rules1 { get; set; }
         public virtual DbSet<DetailProduct> DetailProduct { get; set; }
-        public virtual DbSet<ImagesProduct> ImagesProduct { get; set; }
         public virtual DbSet<Products> Products { get; set; }
         public virtual DbSet<Qualification> Qualification { get; set; }
         public virtual DbSet<SimilarProduct> SimilarProduct { get; set; }
         public virtual DbSet<SizeForProduct> SizeForProduct { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<database_firewall_rules2> database_firewall_rules2 { get; set; }
+        public virtual DbSet<ImagesProduct> ImagesProduct { get; set; }
     
         public virtual int ACOB_DeleteProd(Nullable<int> iD)
         {
@@ -1081,12 +1081,8 @@ namespace Datos
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ACOB_GetSizes_Result>("ACOB_GetSizes");
         }
     
-        public virtual int ACOB_InsertImages(Nullable<int> idImage, Nullable<int> idProduct, string descripcion, byte[] image, Nullable<System.DateTime> dateUpdate, string isEnable)
+        public virtual int ACOB_InsertImages(Nullable<int> idProduct, string descripcion, byte[] image, Nullable<System.DateTime> dateUpdate, Nullable<bool> isEnable)
         {
-            var idImageParameter = idImage.HasValue ?
-                new ObjectParameter("idImage", idImage) :
-                new ObjectParameter("idImage", typeof(int));
-    
             var idProductParameter = idProduct.HasValue ?
                 new ObjectParameter("idProduct", idProduct) :
                 new ObjectParameter("idProduct", typeof(int));
@@ -1103,11 +1099,11 @@ namespace Datos
                 new ObjectParameter("DateUpdate", dateUpdate) :
                 new ObjectParameter("DateUpdate", typeof(System.DateTime));
     
-            var isEnableParameter = isEnable != null ?
+            var isEnableParameter = isEnable.HasValue ?
                 new ObjectParameter("IsEnable", isEnable) :
-                new ObjectParameter("IsEnable", typeof(string));
+                new ObjectParameter("IsEnable", typeof(bool));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ACOB_InsertImages", idImageParameter, idProductParameter, descripcionParameter, imageParameter, dateUpdateParameter, isEnableParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ACOB_InsertImages", idProductParameter, descripcionParameter, imageParameter, dateUpdateParameter, isEnableParameter);
         }
     
         public virtual ObjectResult<byte[]> ADER1_GetImagesByProductID(Nullable<int> iD)
@@ -1454,6 +1450,187 @@ namespace Datos
                 new ObjectParameter("DateUpdate", typeof(System.DateTime));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SEMD_AddShoes", idTypeParameter, idColorParameter, idBrandParameter, idProviderParameter, idCatalogParameter, titleParameter, nombreParameter, descriptionParameter, observationsParameter, priceDistributorParameter, priceClientParameter, priceMemberParameter, isEnabledParameter, keywordsParameter, dateUpdateParameter);
+        }
+    
+        public virtual int ACOB_InsertColor(string name, string desc, string hexa, Nullable<bool> isEn)
+        {
+            var nameParameter = name != null ?
+                new ObjectParameter("name", name) :
+                new ObjectParameter("name", typeof(string));
+    
+            var descParameter = desc != null ?
+                new ObjectParameter("desc", desc) :
+                new ObjectParameter("desc", typeof(string));
+    
+            var hexaParameter = hexa != null ?
+                new ObjectParameter("hexa", hexa) :
+                new ObjectParameter("hexa", typeof(string));
+    
+            var isEnParameter = isEn.HasValue ?
+                new ObjectParameter("isEn", isEn) :
+                new ObjectParameter("isEn", typeof(bool));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ACOB_InsertColor", nameParameter, descParameter, hexaParameter, isEnParameter);
+        }
+    
+        public virtual int dena_sp_ModificarProd(Nullable<int> id, Nullable<int> idType, Nullable<int> idColor, Nullable<int> idBrand, Nullable<int> idProvider, Nullable<int> idCatalog, string title, string nombre, string description, string observations, Nullable<decimal> priceDistributor, Nullable<decimal> priceClient, Nullable<decimal> priceMember, Nullable<bool> isEnabled, string keywords, Nullable<System.DateTime> dateUpdate)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("Id", id) :
+                new ObjectParameter("Id", typeof(int));
+    
+            var idTypeParameter = idType.HasValue ?
+                new ObjectParameter("idType", idType) :
+                new ObjectParameter("idType", typeof(int));
+    
+            var idColorParameter = idColor.HasValue ?
+                new ObjectParameter("idColor", idColor) :
+                new ObjectParameter("idColor", typeof(int));
+    
+            var idBrandParameter = idBrand.HasValue ?
+                new ObjectParameter("idBrand", idBrand) :
+                new ObjectParameter("idBrand", typeof(int));
+    
+            var idProviderParameter = idProvider.HasValue ?
+                new ObjectParameter("idProvider", idProvider) :
+                new ObjectParameter("idProvider", typeof(int));
+    
+            var idCatalogParameter = idCatalog.HasValue ?
+                new ObjectParameter("idCatalog", idCatalog) :
+                new ObjectParameter("idCatalog", typeof(int));
+    
+            var titleParameter = title != null ?
+                new ObjectParameter("Title", title) :
+                new ObjectParameter("Title", typeof(string));
+    
+            var nombreParameter = nombre != null ?
+                new ObjectParameter("Nombre", nombre) :
+                new ObjectParameter("Nombre", typeof(string));
+    
+            var descriptionParameter = description != null ?
+                new ObjectParameter("Description", description) :
+                new ObjectParameter("Description", typeof(string));
+    
+            var observationsParameter = observations != null ?
+                new ObjectParameter("Observations", observations) :
+                new ObjectParameter("Observations", typeof(string));
+    
+            var priceDistributorParameter = priceDistributor.HasValue ?
+                new ObjectParameter("PriceDistributor", priceDistributor) :
+                new ObjectParameter("PriceDistributor", typeof(decimal));
+    
+            var priceClientParameter = priceClient.HasValue ?
+                new ObjectParameter("PriceClient", priceClient) :
+                new ObjectParameter("PriceClient", typeof(decimal));
+    
+            var priceMemberParameter = priceMember.HasValue ?
+                new ObjectParameter("PriceMember", priceMember) :
+                new ObjectParameter("PriceMember", typeof(decimal));
+    
+            var isEnabledParameter = isEnabled.HasValue ?
+                new ObjectParameter("IsEnabled", isEnabled) :
+                new ObjectParameter("IsEnabled", typeof(bool));
+    
+            var keywordsParameter = keywords != null ?
+                new ObjectParameter("Keywords", keywords) :
+                new ObjectParameter("Keywords", typeof(string));
+    
+            var dateUpdateParameter = dateUpdate.HasValue ?
+                new ObjectParameter("DateUpdate", dateUpdate) :
+                new ObjectParameter("DateUpdate", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("dena_sp_ModificarProd", idParameter, idTypeParameter, idColorParameter, idBrandParameter, idProviderParameter, idCatalogParameter, titleParameter, nombreParameter, descriptionParameter, observationsParameter, priceDistributorParameter, priceClientParameter, priceMemberParameter, isEnabledParameter, keywordsParameter, dateUpdateParameter);
+        }
+    
+        public virtual int FAVV_AgregaImagen(Nullable<int> idProduct, string descripcion, byte[] image, Nullable<System.DateTime> dateUpdate, Nullable<bool> isEnable)
+        {
+            var idProductParameter = idProduct.HasValue ?
+                new ObjectParameter("idProduct", idProduct) :
+                new ObjectParameter("idProduct", typeof(int));
+    
+            var descripcionParameter = descripcion != null ?
+                new ObjectParameter("Descripcion", descripcion) :
+                new ObjectParameter("Descripcion", typeof(string));
+    
+            var imageParameter = image != null ?
+                new ObjectParameter("Image", image) :
+                new ObjectParameter("Image", typeof(byte[]));
+    
+            var dateUpdateParameter = dateUpdate.HasValue ?
+                new ObjectParameter("DateUpdate", dateUpdate) :
+                new ObjectParameter("DateUpdate", typeof(System.DateTime));
+    
+            var isEnableParameter = isEnable.HasValue ?
+                new ObjectParameter("IsEnable", isEnable) :
+                new ObjectParameter("IsEnable", typeof(bool));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("FAVV_AgregaImagen", idProductParameter, descripcionParameter, imageParameter, dateUpdateParameter, isEnableParameter);
+        }
+    
+        public virtual ObjectResult<JRCV1_GetImages_Result> JRCV1_GetImages(Nullable<int> idProduct)
+        {
+            var idProductParameter = idProduct.HasValue ?
+                new ObjectParameter("IdProduct", idProduct) :
+                new ObjectParameter("IdProduct", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<JRCV1_GetImages_Result>("JRCV1_GetImages", idProductParameter);
+        }
+    
+        public virtual ObjectResult<NMRH_ID_Result> NMRH_ID(Nullable<int> id)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<NMRH_ID_Result>("NMRH_ID", idParameter);
+        }
+    
+        public virtual ObjectResult<NMRH_lOOK_Result> NMRH_lOOK()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<NMRH_lOOK_Result>("NMRH_lOOK");
+        }
+    
+        public virtual ObjectResult<NMRH_Nombre_Result> NMRH_Nombre(string nombre)
+        {
+            var nombreParameter = nombre != null ?
+                new ObjectParameter("Nombre", nombre) :
+                new ObjectParameter("Nombre", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<NMRH_Nombre_Result>("NMRH_Nombre", nombreParameter);
+        }
+    
+        public virtual int ACOB_InsertSize(Nullable<int> idType, string code, string unity, string desc, string value)
+        {
+            var idTypeParameter = idType.HasValue ?
+                new ObjectParameter("IdType", idType) :
+                new ObjectParameter("IdType", typeof(int));
+    
+            var codeParameter = code != null ?
+                new ObjectParameter("Code", code) :
+                new ObjectParameter("Code", typeof(string));
+    
+            var unityParameter = unity != null ?
+                new ObjectParameter("Unity", unity) :
+                new ObjectParameter("Unity", typeof(string));
+    
+            var descParameter = desc != null ?
+                new ObjectParameter("Desc", desc) :
+                new ObjectParameter("Desc", typeof(string));
+    
+            var valueParameter = value != null ?
+                new ObjectParameter("Value", value) :
+                new ObjectParameter("Value", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ACOB_InsertSize", idTypeParameter, codeParameter, unityParameter, descParameter, valueParameter);
+        }
+    
+        public virtual int BRTV_Delete(Nullable<int> id)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("Id", id) :
+                new ObjectParameter("Id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("BRTV_Delete", idParameter);
         }
     }
 }

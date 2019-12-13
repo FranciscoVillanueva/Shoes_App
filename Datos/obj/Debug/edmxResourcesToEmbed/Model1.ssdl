@@ -143,10 +143,10 @@
     </Key>
     <Property Name="IdImage" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="IdProduct" Type="int" Nullable="false" />
-    <Property Name="Decription" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Image" Type="varbinary(max)" Nullable="false" />
-    <Property Name="DateUpdate" Type="datetime" />
-    <Property Name="IsEnabled" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Decription" Type="nvarchar(max)" />
+    <Property Name="Image" Type="image" Nullable="false" />
+    <Property Name="DateUpdate" Type="datetime" Nullable="false" />
+    <Property Name="IsEnabled" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="Products">
     <Key>
@@ -355,6 +355,18 @@ warning 6002: The table/view 'DataProducts.sys.database_firewall_rules' does not
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_IDProducto">
+    <End Role="Products" Type="Self.Products" Multiplicity="1" />
+    <End Role="ImagesProduct" Type="Self.ImagesProduct" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ImagesProduct">
+        <PropertyRef Name="IdProduct" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_ProductsCatProviders">
     <End Role="CatProviders" Type="Self.CatProviders" Multiplicity="0..1" />
     <End Role="Products" Type="Self.Products" Multiplicity="*" />
@@ -387,18 +399,6 @@ warning 6002: The table/view 'DataProducts.sys.database_firewall_rules' does not
         <PropertyRef Name="Id" />
       </Principal>
       <Dependent Role="DetailProduct">
-        <PropertyRef Name="IdProduct" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_ProductsImagesProduct">
-    <End Role="Products" Type="Self.Products" Multiplicity="1" />
-    <End Role="ImagesProduct" Type="Self.ImagesProduct" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Products">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="ImagesProduct">
         <PropertyRef Name="IdProduct" />
       </Dependent>
     </ReferentialConstraint>
@@ -447,13 +447,18 @@ warning 6002: The table/view 'DataProducts.sys.database_firewall_rules' does not
     <Parameter Name="id" Type="int" Mode="In" />
   </Function>
   <Function Name="ACOB_GetSizes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="ACOB_InsertColor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="name" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="desc" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="hexa" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="isEn" Type="bit" Mode="In" />
+  </Function>
   <Function Name="ACOB_InsertImages" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="idImage" Type="int" Mode="In" />
     <Parameter Name="idProduct" Type="int" Mode="In" />
     <Parameter Name="Descripcion" Type="nvarchar(max)" Mode="In" />
     <Parameter Name="Image" Type="varbinary(max)" Mode="In" />
     <Parameter Name="DateUpdate" Type="datetime" Mode="In" />
-    <Parameter Name="IsEnable" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="IsEnable" Type="bit" Mode="In" />
   </Function>
   <Function Name="ACOB_InsertProduct" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="IdType" Type="int" Mode="In" />
@@ -471,6 +476,13 @@ warning 6002: The table/view 'DataProducts.sys.database_firewall_rules' does not
     <Parameter Name="IsEnabled" Type="bit" Mode="In" />
     <Parameter Name="Keywords" Type="nvarchar(max)" Mode="In" />
     <Parameter Name="DateUpdate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="ACOB_InsertSize" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdType" Type="int" Mode="In" />
+    <Parameter Name="Code" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Unity" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Desc" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Value" Type="nvarchar(max)" Mode="In" />
   </Function>
   <Function Name="ACOB_SearchByIdOrName" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="Id" Type="int" Mode="In" />
@@ -546,6 +558,9 @@ warning 6002: The table/view 'DataProducts.sys.database_firewall_rules' does not
     <Parameter Name="Keywords" Type="varchar" Mode="In" />
     <Parameter Name="DateUpdate" Type="datetime" Mode="In" />
   </Function>
+  <Function Name="BRTV_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
   <Function Name="BRTV_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="IdType" Type="int" Mode="In" />
     <Parameter Name="IdColor" Type="int" Mode="In" />
@@ -610,6 +625,24 @@ warning 6002: The table/view 'DataProducts.sys.database_firewall_rules' does not
     <Parameter Name="Keywords" Type="nvarchar" Mode="In" />
     <Parameter Name="DateUpdate" Type="datetime" Mode="In" />
   </Function>
+  <Function Name="dena_sp_ModificarProd" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="idType" Type="int" Mode="In" />
+    <Parameter Name="idColor" Type="int" Mode="In" />
+    <Parameter Name="idBrand" Type="int" Mode="In" />
+    <Parameter Name="idProvider" Type="int" Mode="In" />
+    <Parameter Name="idCatalog" Type="int" Mode="In" />
+    <Parameter Name="Title" Type="varchar" Mode="In" />
+    <Parameter Name="Nombre" Type="varchar" Mode="In" />
+    <Parameter Name="Description" Type="varchar" Mode="In" />
+    <Parameter Name="Observations" Type="varchar" Mode="In" />
+    <Parameter Name="PriceDistributor" Type="decimal" Mode="In" />
+    <Parameter Name="PriceClient" Type="decimal" Mode="In" />
+    <Parameter Name="PriceMember" Type="decimal" Mode="In" />
+    <Parameter Name="IsEnabled" Type="bit" Mode="In" />
+    <Parameter Name="Keywords" Type="varchar" Mode="In" />
+    <Parameter Name="DateUpdate" Type="datetime" Mode="In" />
+  </Function>
   <Function Name="dena_sp_MostrarTodo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="eumc1_getAllProviders" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="eumc1_getProductByIdOrName" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
@@ -626,6 +659,13 @@ warning 6002: The table/view 'DataProducts.sys.database_firewall_rules' does not
     <Parameter Name="Title" Type="varchar" Mode="In" />
   </Function>
   <Function Name="FASV1_GetAllProducts" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="FAVV_AgregaImagen" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idProduct" Type="int" Mode="In" />
+    <Parameter Name="Descripcion" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Image" Type="varbinary(max)" Mode="In" />
+    <Parameter Name="DateUpdate" Type="datetime" Mode="In" />
+    <Parameter Name="IsEnable" Type="bit" Mode="In" />
+  </Function>
   <Function Name="FAVV_BuscaNombrePorId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="elId" Type="int" Mode="In" />
   </Function>
@@ -680,6 +720,9 @@ warning 6002: The table/view 'DataProducts.sys.database_firewall_rules' does not
     <Parameter Name="Id" Type="int" Mode="In" />
   </Function>
   <Function Name="JRCV1_GetColors" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="JRCV1_GetImages" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdProduct" Type="int" Mode="In" />
+  </Function>
   <Function Name="JRCV1_GetSizes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="JRCV1_InserNewProduct" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="IdType" Type="int" Mode="In" />
@@ -760,6 +803,13 @@ warning 6002: The table/view 'DataProducts.sys.database_firewall_rules' does not
   </Function>
   <Function Name="MPVI_SEARCH_NOMBRE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="NOMBRE" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="NMRH_ID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="NMRH_lOOK" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="NMRH_Nombre" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Nombre" Type="nvarchar(max)" Mode="In" />
   </Function>
   <Function Name="SEMD_AddShoes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="IdType" Type="int" Mode="In" />
@@ -892,6 +942,10 @@ warning 6002: The table/view 'DataProducts.sys.database_firewall_rules' does not
       <End Role="CatTypeProduct" EntitySet="CatTypeProduct" />
       <End Role="Products" EntitySet="Products" />
     </AssociationSet>
+    <AssociationSet Name="FK_IDProducto" Association="Self.FK_IDProducto">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="ImagesProduct" EntitySet="ImagesProduct" />
+    </AssociationSet>
     <AssociationSet Name="FK_ProductsCatProviders" Association="Self.FK_ProductsCatProviders">
       <End Role="CatProviders" EntitySet="CatProviders" />
       <End Role="Products" EntitySet="Products" />
@@ -903,10 +957,6 @@ warning 6002: The table/view 'DataProducts.sys.database_firewall_rules' does not
     <AssociationSet Name="FK_ProductsDetailProduct" Association="Self.FK_ProductsDetailProduct">
       <End Role="Products" EntitySet="Products" />
       <End Role="DetailProduct" EntitySet="DetailProduct" />
-    </AssociationSet>
-    <AssociationSet Name="FK_ProductsImagesProduct" Association="Self.FK_ProductsImagesProduct">
-      <End Role="Products" EntitySet="Products" />
-      <End Role="ImagesProduct" EntitySet="ImagesProduct" />
     </AssociationSet>
     <AssociationSet Name="FK_ProductsSimilarProduct" Association="Self.FK_ProductsSimilarProduct">
       <End Role="Products" EntitySet="Products" />

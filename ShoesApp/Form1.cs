@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,7 +24,7 @@ namespace ShoesApp
 
             //dataGridView1.Rows.Add(row6);
 
-            //label1.Text = dataGridView1.Rows[0].Cells[1].Value.ToString();
+            
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -50,6 +51,44 @@ namespace ShoesApp
         {
             Form2 f = new Form2();
             f.Show();
+        }
+
+        private void Editar_Click(object sender, EventArgs e)
+        {
+            PictureBox[] arPics = flowLayoutPanel1.Controls.OfType<PictureBox>().ToArray();
+            int totaldePic = flowLayoutPanel1.Controls.OfType<PictureBox>().Count();
+            byte[][] jaggedArray = new byte[totaldePic][];
+            for (int i = 0; i < totaldePic; i++)
+            {
+                MemoryStream laimag = new MemoryStream();
+                arPics[i].Image.Save(laimag, System.Drawing.Imaging.ImageFormat.Jpeg);
+                jaggedArray[i] = laimag.ToArray();
+            }
+            Ne.ActualizaProducto(
+                int.Parse(MuestradataGrid.Rows[0].Cells[0].Value.ToString()),
+                int.Parse(MuestradataGrid.Rows[0].Cells[2].Value.ToString()),
+                int.Parse(MuestradataGrid.Rows[0].Cells[5].Value.ToString()),
+                MuestradataGrid.Rows[0].Cells[7].Value.ToString(),
+                MuestradataGrid.Rows[0].Cells[8].Value.ToString(),
+                jaggedArray);
+        }
+
+        private void AgregaFotoApanel_Click(object sender, EventArgs e)
+        {
+            PictureBox p = new PictureBox()
+            {
+                BorderStyle = BorderStyle.FixedSingle,
+                Height = 600,
+                Width = 1600,
+                //Top = Height * flowLayoutPanel1.Controls.Count,
+                SizeMode = PictureBoxSizeMode.AutoSize
+            };
+            flowLayoutPanel1.Controls.Add(p);
+            OpenFileDialog open = new OpenFileDialog();
+            if (open.ShowDialog() == DialogResult.OK)
+            {
+                p.Image = new Bitmap(open.OpenFile());
+            }
         }
     }
 }

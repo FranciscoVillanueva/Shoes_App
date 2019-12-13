@@ -13,7 +13,7 @@ namespace Negocio
         Dat d = new Dat();
         Ent En = new Ent();
 
-        public void AgregaProucto(TextBox[] losid, TextBox[] nombres, TextBox[] precios, Byte[][] arBy)
+        public void AgregaProucto(TextBox[] losid, TextBox[] nombres, TextBox[] precios) //, Byte[][] arBy)
         {
             int?[] id = new int?[5];
             string[] nom = new string[5];
@@ -27,13 +27,23 @@ namespace Negocio
             {
                 dec[i] = Decimal.Parse(precios[i].Text);
             }
-            d.ag(id,nom,dec);
-            Products produc = d.Busca(nombres[1].Text);
-            int num = 4;
+            d.Ag(id,nom,dec);
+            //Products produc = d.Busca(nombres[1].Text);
+            //int num = 4;
+            //foreach (var item in arBy)
+            //{
+            //    d.AgregaImagenes(produc,item,num);
+            //    num = num + 1;
+            //}
+        }
+
+        public void ActualizaProducto(int id, int idcol, int idcat, string nom, string des, byte[][] arBy)
+        {         
+            d.ActualizaProd(id, idcol, idcat, nom, des);
+            Products produc = d.BuscaId(id);
             foreach (var item in arBy)
             {
-                d.AgregaImagenes(produc,item,num);
-                num = num + 1;
+                d.AgregaImagenes(produc, item); //
             }
         }
 

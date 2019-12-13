@@ -156,18 +156,6 @@
     <NavigationProperty Name="CatTypeDetails" Relationship="Self.FK_CatTypeDetailsDetailProduct" FromRole="DetailProduct" ToRole="CatTypeDetails" />
     <NavigationProperty Name="Products" Relationship="Self.FK_ProductsDetailProduct" FromRole="DetailProduct" ToRole="Products" />
   </EntityType>
-  <EntityType Name="ImagesProduct">
-    <Key>
-      <PropertyRef Name="IdImage" />
-    </Key>
-    <Property Name="IdImage" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="IdProduct" Type="Int32" Nullable="false" />
-    <Property Name="Decription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
-    <Property Name="DateUpdate" Type="DateTime" Precision="3" />
-    <Property Name="IsEnabled" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-    <NavigationProperty Name="Products" Relationship="Self.FK_ProductsImagesProduct" FromRole="ImagesProduct" ToRole="Products" />
-  </EntityType>
   <EntityType Name="Products">
     <Key>
       <PropertyRef Name="Id" />
@@ -195,10 +183,10 @@
     <NavigationProperty Name="CatTypeProduct" Relationship="Self.FK_CatTypeProductProducts" FromRole="Products" ToRole="CatTypeProduct" />
     <NavigationProperty Name="Comments" Relationship="Self.FK_ProductsComments" FromRole="Products" ToRole="Comments" />
     <NavigationProperty Name="DetailProduct" Relationship="Self.FK_ProductsDetailProduct" FromRole="Products" ToRole="DetailProduct" />
-    <NavigationProperty Name="ImagesProduct" Relationship="Self.FK_ProductsImagesProduct" FromRole="Products" ToRole="ImagesProduct" />
     <NavigationProperty Name="SimilarProduct" Relationship="Self.FK_ProductsSimilarProduct" FromRole="Products" ToRole="SimilarProduct" />
     <NavigationProperty Name="SizeForProduct" Relationship="Self.FK_ProductsSizeForProduct" FromRole="Products" ToRole="SizeForProduct" />
     <NavigationProperty Name="Qualification" Relationship="Self.FK_QualificationProducts" FromRole="Products" ToRole="Qualification" />
+    <NavigationProperty Name="ImagesProduct" Relationship="DataProductsModel.FK_IDProducto" FromRole="Products" ToRole="ImagesProduct" />
   </EntityType>
   <EntityType Name="Qualification">
     <Key>
@@ -425,18 +413,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_ProductsImagesProduct">
-    <End Role="Products" Type="Self.Products" Multiplicity="1" />
-    <End Role="ImagesProduct" Type="Self.ImagesProduct" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Products">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="ImagesProduct">
-        <PropertyRef Name="IdProduct" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_ProductsSimilarProduct">
     <End Role="Products" Type="Self.Products" Multiplicity="1" />
     <End Role="SimilarProduct" Type="Self.SimilarProduct" Multiplicity="*" />
@@ -486,7 +462,6 @@
     <EntitySet Name="database_firewall_rules" EntityType="Self.database_firewall_rules" />
     <EntitySet Name="database_firewall_rules1" EntityType="Self.database_firewall_rules1" />
     <EntitySet Name="DetailProduct" EntityType="Self.DetailProduct" />
-    <EntitySet Name="ImagesProduct" EntityType="Self.ImagesProduct" />
     <EntitySet Name="Products" EntityType="Self.Products" />
     <EntitySet Name="Qualification" EntityType="Self.Qualification" />
     <EntitySet Name="SimilarProduct" EntityType="Self.SimilarProduct" />
@@ -548,10 +523,6 @@
     <AssociationSet Name="FK_ProductsDetailProduct" Association="Self.FK_ProductsDetailProduct">
       <End Role="Products" EntitySet="Products" />
       <End Role="DetailProduct" EntitySet="DetailProduct" />
-    </AssociationSet>
-    <AssociationSet Name="FK_ProductsImagesProduct" Association="Self.FK_ProductsImagesProduct">
-      <End Role="Products" EntitySet="Products" />
-      <End Role="ImagesProduct" EntitySet="ImagesProduct" />
     </AssociationSet>
     <AssociationSet Name="FK_ProductsSimilarProduct" Association="Self.FK_ProductsSimilarProduct">
       <End Role="Products" EntitySet="Products" />
@@ -850,12 +821,11 @@
     </FunctionImport>
     <FunctionImport Name="ACOB_GetSizes" ReturnType="Collection(DataProductsModel.ACOB_GetSizes_Result)" />
     <FunctionImport Name="ACOB_InsertImages">
-      <Parameter Name="idImage" Mode="In" Type="Int32" />
       <Parameter Name="idProduct" Mode="In" Type="Int32" />
       <Parameter Name="Descripcion" Mode="In" Type="String" />
       <Parameter Name="Image" Mode="In" Type="Binary" />
       <Parameter Name="DateUpdate" Mode="In" Type="DateTime" />
-      <Parameter Name="IsEnable" Mode="In" Type="String" />
+      <Parameter Name="IsEnable" Mode="In" Type="Boolean" />
     </FunctionImport>
     <FunctionImport Name="ADER1_GetImagesByProductID" ReturnType="Collection(Binary)">
       <Parameter Name="ID" Mode="In" Type="Int32" />
@@ -950,6 +920,62 @@
       <Parameter Name="Keywords" Mode="In" Type="String" />
       <Parameter Name="DateUpdate" Mode="In" Type="DateTime" />
     </FunctionImport>
+    <FunctionImport Name="ACOB_InsertColor">
+      <Parameter Name="name" Mode="In" Type="String" />
+      <Parameter Name="desc" Mode="In" Type="String" />
+      <Parameter Name="hexa" Mode="In" Type="String" />
+      <Parameter Name="isEn" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="dena_sp_ModificarProd">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+      <Parameter Name="idType" Mode="In" Type="Int32" />
+      <Parameter Name="idColor" Mode="In" Type="Int32" />
+      <Parameter Name="idBrand" Mode="In" Type="Int32" />
+      <Parameter Name="idProvider" Mode="In" Type="Int32" />
+      <Parameter Name="idCatalog" Mode="In" Type="Int32" />
+      <Parameter Name="Title" Mode="In" Type="String" />
+      <Parameter Name="Nombre" Mode="In" Type="String" />
+      <Parameter Name="Description" Mode="In" Type="String" />
+      <Parameter Name="Observations" Mode="In" Type="String" />
+      <Parameter Name="PriceDistributor" Mode="In" Type="Decimal" />
+      <Parameter Name="PriceClient" Mode="In" Type="Decimal" />
+      <Parameter Name="PriceMember" Mode="In" Type="Decimal" />
+      <Parameter Name="IsEnabled" Mode="In" Type="Boolean" />
+      <Parameter Name="Keywords" Mode="In" Type="String" />
+      <Parameter Name="DateUpdate" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="FAVV_AgregaImagen">
+      <Parameter Name="idProduct" Mode="In" Type="Int32" />
+      <Parameter Name="Descripcion" Mode="In" Type="String" />
+      <Parameter Name="Image" Mode="In" Type="Binary" />
+      <Parameter Name="DateUpdate" Mode="In" Type="DateTime" />
+      <Parameter Name="IsEnable" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="JRCV1_GetImages" ReturnType="Collection(DataProductsModel.JRCV1_GetImages_Result)">
+      <Parameter Name="IdProduct" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="NMRH_ID" ReturnType="Collection(DataProductsModel.NMRH_ID_Result)">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="NMRH_lOOK" ReturnType="Collection(DataProductsModel.NMRH_lOOK_Result)" />
+    <FunctionImport Name="NMRH_Nombre" ReturnType="Collection(DataProductsModel.NMRH_Nombre_Result)">
+      <Parameter Name="Nombre" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="ACOB_InsertSize">
+      <Parameter Name="IdType" Mode="In" Type="Int32" />
+      <Parameter Name="Code" Mode="In" Type="String" />
+      <Parameter Name="Unity" Mode="In" Type="String" />
+      <Parameter Name="Desc" Mode="In" Type="String" />
+      <Parameter Name="Value" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="BRTV_Delete">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="ImagesProduct" EntityType="DataProductsModel.ImagesProduct" />
+    <AssociationSet Name="FK_IDProducto" Association="DataProductsModel.FK_IDProducto">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="ImagesProduct" EntitySet="ImagesProduct" />
+    </AssociationSet>
   </EntityContainer>
   <ComplexType Name="ACOB_SearchByIdOrName_Result">
     <Property Type="Int32" Name="Id" Nullable="false" />
@@ -1504,4 +1530,90 @@
     <Property Type="String" Name="Keywords" Nullable="true" />
     <Property Type="DateTime" Name="DateUpdate" Nullable="true" Precision="23" />
   </ComplexType>
+  <ComplexType Name="JRCV1_GetImages_Result">
+    <Property Type="Int32" Name="IdImage" Nullable="false" />
+    <Property Type="Int32" Name="IdProduct" Nullable="false" />
+    <Property Type="String" Name="Decription" Nullable="false" />
+    <Property Type="Binary" Name="Image" Nullable="false" />
+    <Property Type="DateTime" Name="DateUpdate" Nullable="true" Precision="23" />
+    <Property Type="String" Name="IsEnabled" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="NMRH_ID_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="Int32" Name="IdType" Nullable="true" />
+    <Property Type="Int32" Name="IdColor" Nullable="true" />
+    <Property Type="Int32" Name="IdBrand" Nullable="true" />
+    <Property Type="Int32" Name="IdProvider" Nullable="true" />
+    <Property Type="Int32" Name="IdCatalog" Nullable="true" />
+    <Property Type="String" Name="Title" Nullable="false" />
+    <Property Type="String" Name="Nombre" Nullable="false" />
+    <Property Type="String" Name="Description" Nullable="false" />
+    <Property Type="String" Name="Observations" Nullable="false" />
+    <Property Type="Decimal" Name="PriceDistributor" Nullable="true" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="PriceClient" Nullable="false" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="PriceMember" Nullable="false" Precision="18" Scale="0" />
+    <Property Type="Boolean" Name="IsEnabled" Nullable="false" />
+    <Property Type="String" Name="Keywords" Nullable="true" />
+    <Property Type="DateTime" Name="DateUpdate" Nullable="true" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="NMRH_lOOK_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="Int32" Name="IdType" Nullable="true" />
+    <Property Type="Int32" Name="IdColor" Nullable="true" />
+    <Property Type="Int32" Name="IdBrand" Nullable="true" />
+    <Property Type="Int32" Name="IdProvider" Nullable="true" />
+    <Property Type="Int32" Name="IdCatalog" Nullable="true" />
+    <Property Type="String" Name="Title" Nullable="false" />
+    <Property Type="String" Name="Nombre" Nullable="false" />
+    <Property Type="String" Name="Description" Nullable="false" />
+    <Property Type="String" Name="Observations" Nullable="false" />
+    <Property Type="Decimal" Name="PriceDistributor" Nullable="true" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="PriceClient" Nullable="false" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="PriceMember" Nullable="false" Precision="18" Scale="0" />
+    <Property Type="Boolean" Name="IsEnabled" Nullable="false" />
+    <Property Type="String" Name="Keywords" Nullable="true" />
+    <Property Type="DateTime" Name="DateUpdate" Nullable="true" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="NMRH_Nombre_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="Int32" Name="IdType" Nullable="true" />
+    <Property Type="Int32" Name="IdColor" Nullable="true" />
+    <Property Type="Int32" Name="IdBrand" Nullable="true" />
+    <Property Type="Int32" Name="IdProvider" Nullable="true" />
+    <Property Type="Int32" Name="IdCatalog" Nullable="true" />
+    <Property Type="String" Name="Title" Nullable="false" />
+    <Property Type="String" Name="Nombre" Nullable="false" />
+    <Property Type="String" Name="Description" Nullable="false" />
+    <Property Type="String" Name="Observations" Nullable="false" />
+    <Property Type="Decimal" Name="PriceDistributor" Nullable="true" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="PriceClient" Nullable="false" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="PriceMember" Nullable="false" Precision="18" Scale="0" />
+    <Property Type="Boolean" Name="IsEnabled" Nullable="false" />
+    <Property Type="String" Name="Keywords" Nullable="true" />
+    <Property Type="DateTime" Name="DateUpdate" Nullable="true" Precision="23" />
+  </ComplexType>
+  <EntityType Name="ImagesProduct">
+    <Key>
+      <PropertyRef Name="IdImage" />
+    </Key>
+    <Property Name="IdImage" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdProduct" Type="Int32" Nullable="false" />
+    <Property Name="Decription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Image" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+    <Property Name="DateUpdate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="IsEnabled" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Products" Relationship="DataProductsModel.FK_IDProducto" FromRole="ImagesProduct" ToRole="Products" />
+  </EntityType>
+  <Association Name="FK_IDProducto">
+    <End Type="DataProductsModel.Products" Role="Products" Multiplicity="1" />
+    <End Type="DataProductsModel.ImagesProduct" Role="ImagesProduct" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ImagesProduct">
+        <PropertyRef Name="IdProduct" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

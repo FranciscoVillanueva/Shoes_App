@@ -18,17 +18,22 @@ namespace Datos
         //{
         //    ob.Configuration.ProxyCreationEnabled = false;
         //}
-
-        public void ag(int?[] id, string [] n, Decimal?[] d)
+    
+        public void ActualizaProd(int id, int idcol, int idcat, string nom, string des)
+        {
+            ob.JRCV1_UpdateProduct(id, idcol, idcat, nom, des);
+        }
+        
+        public void Ag(int?[] id, string [] n, Decimal?[] d)
         {
             ob.JEVJ1_InsertaNuevoProducto(id[0], id[1], id[2], id[3], id[4], n[0]
                 , n[1], n[2], n[3],
                 d[0], d[1], d[2], true, n[4], DateTime.Now);
         }
 
-        public void AgregaImagenes(Products elpro, Byte[] im, int num )
+        public void AgregaImagenes(Products elpro, Byte[] im)
         {
-            ob.ACOB_InsertImages(num,elpro.Id,elpro.Nombre,im,DateTime.Now,"true");
+            ob.FAVV_AgregaImagen(elpro.Id, elpro.Nombre, im, DateTime.Now, true);
         }
 
         public Products BuscaId(int ent)

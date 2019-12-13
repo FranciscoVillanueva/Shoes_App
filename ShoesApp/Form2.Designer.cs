@@ -56,8 +56,6 @@
             this.textBox13 = new System.Windows.Forms.TextBox();
             this.textBox14 = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
-            this.AgregaFoto = new System.Windows.Forms.Button();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.AgregarProducto = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -313,25 +311,6 @@
             this.label14.TabIndex = 27;
             this.label14.Text = "Keywords";
             // 
-            // AgregaFoto
-            // 
-            this.AgregaFoto.Location = new System.Drawing.Point(866, 18);
-            this.AgregaFoto.Name = "AgregaFoto";
-            this.AgregaFoto.Size = new System.Drawing.Size(177, 54);
-            this.AgregaFoto.TabIndex = 29;
-            this.AgregaFoto.Text = "Agrega Foto";
-            this.AgregaFoto.UseVisualStyleBackColor = true;
-            this.AgregaFoto.Click += new System.EventHandler(this.AgregaFoto_Click);
-            // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.AutoScroll = true;
-            this.flowLayoutPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(649, 80);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(842, 494);
-            this.flowLayoutPanel1.TabIndex = 31;
-            // 
             // AgregarProducto
             // 
             this.AgregarProducto.Location = new System.Drawing.Point(380, 444);
@@ -348,8 +327,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1661, 619);
             this.Controls.Add(this.AgregarProducto);
-            this.Controls.Add(this.flowLayoutPanel1);
-            this.Controls.Add(this.AgregaFoto);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.textBox14);
             this.Controls.Add(this.label13);
@@ -417,8 +394,6 @@
         private System.Windows.Forms.TextBox textBox13;
         private System.Windows.Forms.TextBox textBox14;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Button AgregaFoto;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Button AgregarProducto;
     }
 }
