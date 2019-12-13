@@ -442,6 +442,19 @@ warning 6002: The table/view 'DataProducts.sys.database_firewall_rules' does not
   <Function Name="ACOB_DeleteProd" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="ID" Type="int" Mode="In" />
   </Function>
+  <Function Name="ACOB_GetColors" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="ACOB_GetImages" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="ACOB_GetSizes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="ACOB_InsertImages" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idImage" Type="int" Mode="In" />
+    <Parameter Name="idProduct" Type="int" Mode="In" />
+    <Parameter Name="Descripcion" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Image" Type="varbinary(max)" Mode="In" />
+    <Parameter Name="DateUpdate" Type="datetime" Mode="In" />
+    <Parameter Name="IsEnable" Type="nvarchar(max)" Mode="In" />
+  </Function>
   <Function Name="ACOB_InsertProduct" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="IdType" Type="int" Mode="In" />
     <Parameter Name="IdColor" Type="int" Mode="In" />
@@ -481,6 +494,12 @@ warning 6002: The table/view 'DataProducts.sys.database_firewall_rules' does not
     <Parameter Name="Keywords" Type="nvarchar(max)" Mode="In" />
     <Parameter Name="DateUpdate" Type="datetime" Mode="In" />
   </Function>
+  <Function Name="ADER1_GetImagesByProductID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="ADER1_GetSizesOfProduct" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID" Type="int" Mode="In" />
+  </Function>
   <Function Name="ADER1_SearchProducts" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="ID" Type="int" Mode="In" />
     <Parameter Name="Name" Type="varchar" Mode="In" />
@@ -490,6 +509,24 @@ warning 6002: The table/view 'DataProducts.sys.database_firewall_rules' does not
   </Function>
   <Function Name="AVHM_BusquedaNombre" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="Nombre" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="AVHM_Modificar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="idType" Type="int" Mode="In" />
+    <Parameter Name="idColor" Type="int" Mode="In" />
+    <Parameter Name="idBrand" Type="int" Mode="In" />
+    <Parameter Name="idProvider" Type="int" Mode="In" />
+    <Parameter Name="idCatalog" Type="int" Mode="In" />
+    <Parameter Name="Title" Type="varchar" Mode="In" />
+    <Parameter Name="Nombre" Type="varchar" Mode="In" />
+    <Parameter Name="Description" Type="varchar" Mode="In" />
+    <Parameter Name="Observations" Type="varchar" Mode="In" />
+    <Parameter Name="PriceDistributor" Type="decimal" Mode="In" />
+    <Parameter Name="PriceClient" Type="decimal" Mode="In" />
+    <Parameter Name="PriceMember" Type="decimal" Mode="In" />
+    <Parameter Name="IsEnabled" Type="bit" Mode="In" />
+    <Parameter Name="Keywords" Type="varchar" Mode="In" />
+    <Parameter Name="DateUpdate" Type="datetime" Mode="In" />
   </Function>
   <Function Name="AVHM_MostrarProducts" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="AVHM_SP_InsertProd" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
@@ -509,11 +546,46 @@ warning 6002: The table/view 'DataProducts.sys.database_firewall_rules' does not
     <Parameter Name="Keywords" Type="varchar" Mode="In" />
     <Parameter Name="DateUpdate" Type="datetime" Mode="In" />
   </Function>
+  <Function Name="BRTV_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdType" Type="int" Mode="In" />
+    <Parameter Name="IdColor" Type="int" Mode="In" />
+    <Parameter Name="IdBrand" Type="int" Mode="In" />
+    <Parameter Name="IdProvider" Type="int" Mode="In" />
+    <Parameter Name="Title" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Nombre" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Description" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Observations" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="PriceDistributor" Type="decimal" Mode="In" />
+    <Parameter Name="PriceClient" Type="decimal" Mode="In" />
+    <Parameter Name="PriceMember" Type="decimal" Mode="In" />
+    <Parameter Name="IsEnabled" Type="bit" Mode="In" />
+    <Parameter Name="Keywords" Type="nvarchar(max)" Mode="In" />
+  </Function>
   <Function Name="BRTV_SearchID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="Id" Type="int" Mode="In" />
   </Function>
+  <Function Name="BRTV_SearchName" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+  </Function>
   <Function Name="CAOE_BUSCAR" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="ID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="CAOE_INSERTAR" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdType" Type="int" Mode="In" />
+    <Parameter Name="IdColor" Type="int" Mode="In" />
+    <Parameter Name="IdBrand" Type="int" Mode="In" />
+    <Parameter Name="IdProvider" Type="int" Mode="In" />
+    <Parameter Name="IdCatalog" Type="int" Mode="In" />
+    <Parameter Name="Title" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Nombre" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Description" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Observations" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="PriceDistributor" Type="decimal" Mode="In" />
+    <Parameter Name="PriceClient" Type="decimal" Mode="In" />
+    <Parameter Name="PriceMember" Type="decimal" Mode="In" />
+    <Parameter Name="IsEnabled" Type="bit" Mode="In" />
+    <Parameter Name="Keywords" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="DateUpdate" Type="datetime" Mode="In" />
   </Function>
   <Function Name="dena_sp_BusquedaProdId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="Id" Type="varchar" Mode="In" />
@@ -539,12 +611,19 @@ warning 6002: The table/view 'DataProducts.sys.database_firewall_rules' does not
     <Parameter Name="DateUpdate" Type="datetime" Mode="In" />
   </Function>
   <Function Name="dena_sp_MostrarTodo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="eumc1_getAllProviders" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="eumc1_getProductByIdOrName" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="Id" Type="int" Mode="In" />
     <Parameter Name="Nombre" Type="varchar" Mode="In" />
   </Function>
+  <Function Name="FASV_DeleteLogic" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="FASV_FilterById" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
   <Function Name="FASV1_FilterByTitle" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="Title" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Title" Type="varchar" Mode="In" />
   </Function>
   <Function Name="FASV1_GetAllProducts" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="FAVV_BuscaNombrePorId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
@@ -600,11 +679,14 @@ warning 6002: The table/view 'DataProducts.sys.database_firewall_rules' does not
     <Parameter Name="Nombre" Type="varchar(max)" Mode="In" />
     <Parameter Name="Id" Type="int" Mode="In" />
   </Function>
+  <Function Name="JRCV1_GetColors" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="JRCV1_GetSizes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="JRCV1_InserNewProduct" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="IdType" Type="int" Mode="In" />
     <Parameter Name="IdColor" Type="int" Mode="In" />
     <Parameter Name="IdBrand" Type="int" Mode="In" />
     <Parameter Name="IdProvider" Type="int" Mode="In" />
+    <Parameter Name="IdCatalog" Type="int" Mode="In" />
     <Parameter Name="Tittle" Type="nvarchar(max)" Mode="In" />
     <Parameter Name="Nombre" Type="nvarchar(max)" Mode="In" />
     <Parameter Name="Descripcion" Type="nvarchar(max)" Mode="In" />
@@ -619,6 +701,13 @@ warning 6002: The table/view 'DataProducts.sys.database_firewall_rules' does not
   <Function Name="JRCV1_SearchShoesProduct" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="Id" Type="int" Mode="In" />
     <Parameter Name="Nombre" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="JRCV1_UpdateProduct" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="IdColor" Type="int" Mode="In" />
+    <Parameter Name="IdCatalog" Type="int" Mode="In" />
+    <Parameter Name="Nombre" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Description" Type="nvarchar(max)" Mode="In" />
   </Function>
   <Function Name="LFGC1_AllProducts" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="LFGC1_DeleteProductID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
@@ -665,11 +754,29 @@ warning 6002: The table/view 'DataProducts.sys.database_firewall_rules' does not
     <Parameter Name="Keywords" Type="varchar(max)" Mode="In" />
     <Parameter Name="DataUpdate" Type="datetime" Mode="In" />
   </Function>
+  <Function Name="MPVI_SEARCH_ALL" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="MPVI_SEARCH_ID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="ID" Type="int" Mode="In" />
   </Function>
   <Function Name="MPVI_SEARCH_NOMBRE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="NOMBRE" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="SEMD_AddShoes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdType" Type="int" Mode="In" />
+    <Parameter Name="IdColor" Type="int" Mode="In" />
+    <Parameter Name="IdBrand" Type="int" Mode="In" />
+    <Parameter Name="IdProvider" Type="int" Mode="In" />
+    <Parameter Name="IdCatalog" Type="int" Mode="In" />
+    <Parameter Name="Title" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Nombre" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Description" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Observations" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="PriceDistributor" Type="decimal" Mode="In" />
+    <Parameter Name="PriceClient" Type="decimal" Mode="In" />
+    <Parameter Name="PriceMember" Type="decimal" Mode="In" />
+    <Parameter Name="IsEnabled" Type="bit" Mode="In" />
+    <Parameter Name="Keywords" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="DateUpdate" Type="datetime" Mode="In" />
   </Function>
   <Function Name="SEMD_SearchById" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="Id" Type="int" Mode="In" />

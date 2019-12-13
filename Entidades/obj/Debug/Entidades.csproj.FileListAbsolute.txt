@@ -10,3 +10,5 @@ C:\Users\Curso\source\repos\ShoesApp\Entidades\obj\Debug\Entidades.csproj.CoreCo
 C:\Users\Curso\source\repos\ShoesApp\Entidades\obj\Debug\Entidades.csproj.CopyComplete
 C:\Users\Curso\source\repos\ShoesApp\Entidades\obj\Debug\Entidades.dll
 C:\Users\Curso\source\repos\ShoesApp\Entidades\obj\Debug\Entidades.pdb
+C:\Users\Curso\source\repos\ShoesApp\Entidades\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Curso\source\repos\ShoesApp\Entidades\bin\Debug\Newtonsoft.Json.xml

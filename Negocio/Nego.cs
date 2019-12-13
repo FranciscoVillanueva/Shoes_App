@@ -12,6 +12,31 @@ namespace Negocio
     {
         Dat d = new Dat();
         Ent En = new Ent();
+
+        public void AgregaProucto(TextBox[] losid, TextBox[] nombres, TextBox[] precios, Byte[][] arBy)
+        {
+            int?[] id = new int?[5];
+            string[] nom = new string[5];
+            Decimal?[] dec = new Decimal?[3];
+            for(int i = 0; i < 5; i++)
+            {
+                id[i] = int.Parse(losid[i].Text);
+                nom[i] = nombres[i].Text;
+            }
+            for (int i = 0; i < 3; i++)
+            {
+                dec[i] = Decimal.Parse(precios[i].Text);
+            }
+            d.ag(id,nom,dec);
+            Products produc = d.Busca(nombres[1].Text);
+            int num = 4;
+            foreach (var item in arBy)
+            {
+                d.AgregaImagenes(produc,item,num);
+                num = num + 1;
+            }
+        }
+
         public void EncuentraProdPorNombre(TextBox te, DataGridView ts)
         {   
             ProdEnt p = En.Casteador(d.Busca(te.Text));
@@ -53,8 +78,6 @@ namespace Negocio
             {
                 c[i].Value = ar[i];
             }
-            //eltex.Rows.Add(ar);
-
         }
     }
 }

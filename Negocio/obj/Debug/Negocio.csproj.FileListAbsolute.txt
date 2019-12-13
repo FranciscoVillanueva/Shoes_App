@@ -15,3 +15,5 @@ C:\Users\Curso\source\repos\ShoesApp\Negocio\bin\Debug\EntityFramework.SqlServer
 C:\Users\Curso\source\repos\ShoesApp\Negocio\obj\Debug\Negocio.csproj.CopyComplete
 C:\Users\Curso\source\repos\ShoesApp\Negocio\obj\Debug\Negocio.dll
 C:\Users\Curso\source\repos\ShoesApp\Negocio\obj\Debug\Negocio.pdb
+C:\Users\Curso\source\repos\ShoesApp\Negocio\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Curso\source\repos\ShoesApp\Negocio\bin\Debug\Newtonsoft.Json.xml

@@ -10,3 +10,5 @@ C:\Users\Curso\source\repos\ShoesApp\Datos\obj\Debug\Datos.csproj.CoreCompileInp
 C:\Users\Curso\source\repos\ShoesApp\Datos\obj\Debug\Datos.csproj.CopyComplete
 C:\Users\Curso\source\repos\ShoesApp\Datos\obj\Debug\Datos.dll
 C:\Users\Curso\source\repos\ShoesApp\Datos\obj\Debug\Datos.pdb
+C:\Users\Curso\source\repos\ShoesApp\Datos\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Curso\source\repos\ShoesApp\Datos\bin\Debug\Newtonsoft.Json.xml

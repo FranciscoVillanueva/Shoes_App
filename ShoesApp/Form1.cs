@@ -45,5 +45,11 @@ namespace ShoesApp
         {
             Ne.EliminaProd(MuestradataGrid.Rows[0].Cells[0].Value.ToString());
         }
+
+        private void NuevoProducto_Click(object sender, EventArgs e)
+        {
+            Form2 f = new Form2();
+            f.Show();
+        }
     }
 }

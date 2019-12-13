@@ -34,7 +34,7 @@
             this.IdBuscar = new System.Windows.Forms.TextBox();
             this.EliminaProd = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
+            this.NuevoProductoBot = new System.Windows.Forms.Button();
             this.Dieciseis = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Quince = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Catorce = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -109,21 +109,21 @@
             this.button4.Text = "Editar";
             this.button4.UseVisualStyleBackColor = true;
             // 
-            // button5
+            // NuevoProductoBot
             // 
-            this.button5.Enabled = false;
-            this.button5.Location = new System.Drawing.Point(736, 48);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(181, 32);
-            this.button5.TabIndex = 7;
-            this.button5.Text = "Nuevo";
-            this.button5.UseVisualStyleBackColor = true;
+            this.NuevoProductoBot.Location = new System.Drawing.Point(736, 48);
+            this.NuevoProductoBot.Name = "NuevoProductoBot";
+            this.NuevoProductoBot.Size = new System.Drawing.Size(181, 32);
+            this.NuevoProductoBot.TabIndex = 7;
+            this.NuevoProductoBot.Text = "Nuevo";
+            this.NuevoProductoBot.UseVisualStyleBackColor = true;
+            this.NuevoProductoBot.Click += new System.EventHandler(this.NuevoProducto_Click);
             // 
             // Dieciseis
             // 
             this.Dieciseis.HeaderText = "Date Update";
             this.Dieciseis.Name = "Dieciseis";
-            this.Dieciseis.Width = 126;
+            this.Dieciseis.Width = 137;
             // 
             // Quince
             // 
@@ -249,7 +249,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1547, 495);
             this.Controls.Add(this.MuestradataGrid);
-            this.Controls.Add(this.button5);
+            this.Controls.Add(this.NuevoProductoBot);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.EliminaProd);
             this.Controls.Add(this.BuscaPorIdBoton);
@@ -273,7 +273,7 @@
         private System.Windows.Forms.TextBox IdBuscar;
         private System.Windows.Forms.Button EliminaProd;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button NuevoProductoBot;
         private System.Windows.Forms.DataGridViewTextBoxColumn Dieciseis;
         private System.Windows.Forms.DataGridViewTextBoxColumn Quince;
         private System.Windows.Forms.DataGridViewTextBoxColumn Catorce;

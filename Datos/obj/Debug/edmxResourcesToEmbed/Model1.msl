@@ -816,5 +816,146 @@
     <FunctionImportMapping FunctionImportName="JRCV1_DeleteLogicIsEnabled" FunctionName="DataProductsModel.Store.JRCV1_DeleteLogicIsEnabled" />
     <FunctionImportMapping FunctionImportName="BuscaProductoPorID" FunctionName="DataProductsModel.Store.JEVJ1_BuscaProductoPorID" />
     <FunctionImportMapping FunctionImportName="BuscaProductoPorNombre" FunctionName="DataProductsModel.Store.JEVJ1_BuscaProductoPorNombre" />
+    <FunctionImportMapping FunctionImportName="ACOB_GetColors" FunctionName="DataProductsModel.Store.ACOB_GetColors">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DataProductsModel.ACOB_GetColors_Result">
+          <ScalarProperty Name="IdColor" ColumnName="IdColor" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="HexaDecimal" ColumnName="HexaDecimal" />
+          <ScalarProperty Name="IsEnable" ColumnName="IsEnable" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="ACOB_GetImages" FunctionName="DataProductsModel.Store.ACOB_GetImages">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DataProductsModel.ACOB_GetImages_Result">
+          <ScalarProperty Name="IdImage" ColumnName="IdImage" />
+          <ScalarProperty Name="IdProduct" ColumnName="IdProduct" />
+          <ScalarProperty Name="Decription" ColumnName="Decription" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="DateUpdate" ColumnName="DateUpdate" />
+          <ScalarProperty Name="IsEnabled" ColumnName="IsEnabled" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="ACOB_GetSizes" FunctionName="DataProductsModel.Store.ACOB_GetSizes">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DataProductsModel.ACOB_GetSizes_Result">
+          <ScalarProperty Name="IdSize" ColumnName="IdSize" />
+          <ScalarProperty Name="IdType" ColumnName="IdType" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Unity" ColumnName="Unity" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="ACOB_InsertImages" FunctionName="DataProductsModel.Store.ACOB_InsertImages" />
+    <FunctionImportMapping FunctionImportName="ADER1_GetImagesByProductID" FunctionName="DataProductsModel.Store.ADER1_GetImagesByProductID" />
+    <FunctionImportMapping FunctionImportName="ADER1_GetSizesOfProduct" FunctionName="DataProductsModel.Store.ADER1_GetSizesOfProduct" />
+    <FunctionImportMapping FunctionImportName="AVHM_Modificar" FunctionName="DataProductsModel.Store.AVHM_Modificar" />
+    <FunctionImportMapping FunctionImportName="BRTV_Insert" FunctionName="DataProductsModel.Store.BRTV_Insert" />
+    <FunctionImportMapping FunctionImportName="BRTV_SearchName" FunctionName="DataProductsModel.Store.BRTV_SearchName">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DataProductsModel.BRTV_SearchName_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="IdType" ColumnName="IdType" />
+          <ScalarProperty Name="IdColor" ColumnName="IdColor" />
+          <ScalarProperty Name="IdBrand" ColumnName="IdBrand" />
+          <ScalarProperty Name="IdProvider" ColumnName="IdProvider" />
+          <ScalarProperty Name="IdCatalog" ColumnName="IdCatalog" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Observations" ColumnName="Observations" />
+          <ScalarProperty Name="PriceDistributor" ColumnName="PriceDistributor" />
+          <ScalarProperty Name="PriceClient" ColumnName="PriceClient" />
+          <ScalarProperty Name="PriceMember" ColumnName="PriceMember" />
+          <ScalarProperty Name="IsEnabled" ColumnName="IsEnabled" />
+          <ScalarProperty Name="Keywords" ColumnName="Keywords" />
+          <ScalarProperty Name="DateUpdate" ColumnName="DateUpdate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="CAOE_INSERTAR" FunctionName="DataProductsModel.Store.CAOE_INSERTAR" />
+    <FunctionImportMapping FunctionImportName="eumc1_getAllProviders" FunctionName="DataProductsModel.Store.eumc1_getAllProviders">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DataProductsModel.eumc1_getAllProviders_Result">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="IdProvider" ColumnName="IdProvider" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="FASV_DeleteLogic" FunctionName="DataProductsModel.Store.FASV_DeleteLogic" />
+    <FunctionImportMapping FunctionImportName="FASV_FilterById" FunctionName="DataProductsModel.Store.FASV_FilterById">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DataProductsModel.FASV_FilterById_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="IdType" ColumnName="IdType" />
+          <ScalarProperty Name="IdColor" ColumnName="IdColor" />
+          <ScalarProperty Name="IdBrand" ColumnName="IdBrand" />
+          <ScalarProperty Name="IdProvider" ColumnName="IdProvider" />
+          <ScalarProperty Name="IdCatalog" ColumnName="IdCatalog" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Observations" ColumnName="Observations" />
+          <ScalarProperty Name="PriceDistributor" ColumnName="PriceDistributor" />
+          <ScalarProperty Name="PriceClient" ColumnName="PriceClient" />
+          <ScalarProperty Name="PriceMember" ColumnName="PriceMember" />
+          <ScalarProperty Name="IsEnabled" ColumnName="IsEnabled" />
+          <ScalarProperty Name="Keywords" ColumnName="Keywords" />
+          <ScalarProperty Name="DateUpdate" ColumnName="DateUpdate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="JRCV1_GetColors" FunctionName="DataProductsModel.Store.JRCV1_GetColors">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DataProductsModel.JRCV1_GetColors_Result">
+          <ScalarProperty Name="IdColor" ColumnName="IdColor" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="HexaDecimal" ColumnName="HexaDecimal" />
+          <ScalarProperty Name="IsEnable" ColumnName="IsEnable" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="JRCV1_GetSizes" FunctionName="DataProductsModel.Store.JRCV1_GetSizes">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DataProductsModel.JRCV1_GetSizes_Result">
+          <ScalarProperty Name="IdSize" ColumnName="IdSize" />
+          <ScalarProperty Name="IdType" ColumnName="IdType" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Unity" ColumnName="Unity" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="JRCV1_UpdateProduct" FunctionName="DataProductsModel.Store.JRCV1_UpdateProduct" />
+    <FunctionImportMapping FunctionImportName="MPVI_SEARCH_ALL" FunctionName="DataProductsModel.Store.MPVI_SEARCH_ALL">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DataProductsModel.MPVI_SEARCH_ALL_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="IdType" ColumnName="IdType" />
+          <ScalarProperty Name="IdColor" ColumnName="IdColor" />
+          <ScalarProperty Name="IdBrand" ColumnName="IdBrand" />
+          <ScalarProperty Name="IdProvider" ColumnName="IdProvider" />
+          <ScalarProperty Name="IdCatalog" ColumnName="IdCatalog" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Observations" ColumnName="Observations" />
+          <ScalarProperty Name="PriceDistributor" ColumnName="PriceDistributor" />
+          <ScalarProperty Name="PriceClient" ColumnName="PriceClient" />
+          <ScalarProperty Name="PriceMember" ColumnName="PriceMember" />
+          <ScalarProperty Name="IsEnabled" ColumnName="IsEnabled" />
+          <ScalarProperty Name="Keywords" ColumnName="Keywords" />
+          <ScalarProperty Name="DateUpdate" ColumnName="DateUpdate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SEMD_AddShoes" FunctionName="DataProductsModel.Store.SEMD_AddShoes" />
   </EntityContainerMapping>
 </Mapping>

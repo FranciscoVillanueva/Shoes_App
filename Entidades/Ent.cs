@@ -4,38 +4,29 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web.Script.Serialization;
+using Newtonsoft.Json;
 using Datos;
 namespace Entidades
 {
     public class Ent
     {
-        public void serial()
+        public string Serial<T>(T b) 
         {
-            Products b = new Products();
             var json = new JavaScriptSerializer().Serialize(b);
+            return json;
         }
 
-        public ProdEnt Casteador(Products ob)
+        public T Deserial<T>(string s) 
         {
-            serial();
-            ProdEnt pr = new ProdEnt();
-            pr.Id = ob.Id;
-            pr.IdType = ob.IdType;
-            pr.IdColor = ob.IdColor;
-            pr.IdBrand = ob.IdBrand;
-            pr.IdProvider = ob.IdProvider;
-            pr.IdCatalog = ob.IdCatalog;
-            pr.Title = ob.Title;
-            pr.Nombre = ob.Nombre;
-            pr.Description = ob.Description;
-            pr.Observations = ob.Observations;
-            pr.PriceDistributor = ob.PriceDistributor;
-            pr.PriceClient = ob.PriceClient;
-            pr.PriceMember = ob.PriceMember;
-            pr.IsEnabled = ob.IsEnabled;
-            pr.Keywords = ob.Keywords;
-            pr.DataUpdate = ob.DateUpdate;
-            return pr;
+            var root = JsonConvert.DeserializeObject<T>(s);
+            return root;
+        }
+
+        public ProdEnt Casteador<Entrada>(Entrada ob)
+        {
+            string s = Serial<Entrada>(ob);
+            ProdEnt ret = Deserial<ProdEnt>(s);
+            return ret;
         }
     }
 
