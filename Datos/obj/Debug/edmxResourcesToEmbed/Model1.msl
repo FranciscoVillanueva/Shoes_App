@@ -1040,5 +1040,30 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="ACOB_GetSizeForEachProduct" FunctionName="DataProductsModel.Store.ACOB_GetSizeForEachProduct">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DataProductsModel.ACOB_GetSizeForEachProduct_Result">
+          <ScalarProperty Name="IdProduct" ColumnName="IdProduct" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="ACOB_InsertSizeProduct" FunctionName="DataProductsModel.Store.ACOB_InsertSizeProduct" />
+    <FunctionImportMapping FunctionImportName="ACOB_UpdateSizeProduct" FunctionName="DataProductsModel.Store.ACOB_UpdateSizeProduct" />
+    <FunctionImportMapping FunctionImportName="ADER1_InsertProduct" FunctionName="DataProductsModel.Store.ADER1_InsertProduct" />
+    <FunctionImportMapping FunctionImportName="FAVV_NombresDeProductos" FunctionName="DataProductsModel.Store.FAVV_NombresDeProductos" />
+    <FunctionImportMapping FunctionImportName="JRCV1_InsertImages" FunctionName="DataProductsModel.Store.JRCV1_InsertImages" />
+    <FunctionImportMapping FunctionImportName="FAVV_NombresDeProductos1" FunctionName="DataProductsModel.Store.FAVV_NombresDeProductos" />
+    <FunctionImportMapping FunctionImportName="FAVV_CatCatalogsSeason" FunctionName="DataProductsModel.Store.FAVV_CatCatalogsSeason" />
+    <FunctionImportMapping FunctionImportName="FAVV_DescripcionesDeCategotias" FunctionName="DataProductsModel.Store.FAVV_DescripcionesDeCategotias" />
+    <FunctionImportMapping FunctionImportName="FAVV_ImagenesDeProducto" FunctionName="DataProductsModel.Store.FAVV_ImagenesDeProducto" />
+    <FunctionImportMapping FunctionImportName="FAVV_NombresColores" FunctionName="DataProductsModel.Store.FAVV_NombresColores" />
+    <FunctionImportMapping FunctionImportName="FAVV_NombresMarcas" FunctionName="DataProductsModel.Store.FAVV_NombresMarcas" />
+    <FunctionImportMapping FunctionImportName="FAVV_NombresProvedores" FunctionName="DataProductsModel.Store.FAVV_NombresProvedores" />
+    <FunctionImportMapping FunctionImportName="FAVV_EncuentraIdBrandPorMarca" FunctionName="DataProductsModel.Store.FAVV_EncuentraIdBrandPorMarca" />
+    <FunctionImportMapping FunctionImportName="FAVV_EncuentraIdCatalogPorDescripcion" FunctionName="DataProductsModel.Store.FAVV_EncuentraIdCatalogPorDescripcion" />
+    <FunctionImportMapping FunctionImportName="FAVV_EncuentraIdCatalogPorSeason" FunctionName="DataProductsModel.Store.FAVV_EncuentraIdCatalogPorSeason" />
+    <FunctionImportMapping FunctionImportName="FAVV_EncuentraIdColorPorName" FunctionName="DataProductsModel.Store.FAVV_EncuentraIdColorPorName" />
+    <FunctionImportMapping FunctionImportName="FAVV_EncuentraIdProviderPorNombre" FunctionName="DataProductsModel.Store.FAVV_EncuentraIdProviderPorNombre" />
   </EntityContainerMapping>
 </Mapping>

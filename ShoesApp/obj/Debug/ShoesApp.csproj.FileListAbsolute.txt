@@ -15,7 +15,6 @@ C:\Users\Curso\source\repos\ShoesApp\ShoesApp\obj\Debug\ShoesApp.csproj.CopyComp
 C:\Users\Curso\source\repos\ShoesApp\ShoesApp\bin\Debug\Datos.dll
 C:\Users\Curso\source\repos\ShoesApp\ShoesApp\bin\Debug\Datos.pdb
 C:\Users\Curso\source\repos\ShoesApp\ShoesApp\bin\Debug\Datos.dll.config
-C:\Users\Curso\source\repos\ShoesApp\ShoesApp\obj\Debug\ShoesApp.Form1.resources
 C:\Users\Curso\source\repos\ShoesApp\ShoesApp\bin\Debug\Negocio.dll
 C:\Users\Curso\source\repos\ShoesApp\ShoesApp\bin\Debug\Entidades.dll
 C:\Users\Curso\source\repos\ShoesApp\ShoesApp\bin\Debug\Negocio.pdb
@@ -23,4 +22,6 @@ C:\Users\Curso\source\repos\ShoesApp\ShoesApp\bin\Debug\Negocio.dll.config
 C:\Users\Curso\source\repos\ShoesApp\ShoesApp\bin\Debug\Entidades.pdb
 C:\Users\Curso\source\repos\ShoesApp\ShoesApp\bin\Debug\Newtonsoft.Json.dll
 C:\Users\Curso\source\repos\ShoesApp\ShoesApp\bin\Debug\Newtonsoft.Json.xml
-C:\Users\Curso\source\repos\ShoesApp\ShoesApp\obj\Debug\ShoesApp.Form2.resources
+C:\Users\Curso\source\repos\ShoesApp\ShoesApp\obj\Debug\ShoesApp.Principal.resources
+C:\Users\Curso\source\repos\ShoesApp\ShoesApp\obj\Debug\ShoesApp.AgregaImagen.resources
+C:\Users\Curso\source\repos\ShoesApp\ShoesApp\obj\Debug\ShoesApp.NuevoProducto.resources

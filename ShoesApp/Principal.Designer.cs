@@ -1,6 +1,6 @@
 ﻿namespace ShoesApp
 {
-    partial class Form1
+    partial class Principal
     {
         /// <summary>
         /// Required designer variable.
@@ -52,16 +52,26 @@
             this.Catorce = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Quince = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Dieciseis = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.AgregaFotoApanel = new System.Windows.Forms.Button();
+            this.Mensajes = new System.Windows.Forms.Label();
+            this.NuevaImagen = new System.Windows.Forms.Button();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.QuitaDePanel = new System.Windows.Forms.Button();
+            this.Foto = new System.Windows.Forms.PictureBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.Anterior = new System.Windows.Forms.Button();
+            this.Siguiente = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.ImNum = new System.Windows.Forms.Label();
+            this.TotIm = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.MuestradataGrid)).BeginInit();
+            this.flowLayoutPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Foto)).BeginInit();
             this.SuspendLayout();
             // 
             // NombreBuscar
             // 
+            this.NombreBuscar.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.NombreBuscar.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.NombreBuscar.Location = new System.Drawing.Point(39, 48);
             this.NombreBuscar.Name = "NombreBuscar";
             this.NombreBuscar.Size = new System.Drawing.Size(365, 26);
@@ -96,7 +106,8 @@
             // 
             // EliminaProd
             // 
-            this.EliminaProd.Location = new System.Drawing.Point(736, 209);
+            this.EliminaProd.Enabled = false;
+            this.EliminaProd.Location = new System.Drawing.Point(1178, 50);
             this.EliminaProd.Name = "EliminaProd";
             this.EliminaProd.Size = new System.Drawing.Size(181, 33);
             this.EliminaProd.TabIndex = 5;
@@ -106,7 +117,8 @@
             // 
             // Editar
             // 
-            this.Editar.Location = new System.Drawing.Point(736, 130);
+            this.Editar.Enabled = false;
+            this.Editar.Location = new System.Drawing.Point(956, 50);
             this.Editar.Name = "Editar";
             this.Editar.Size = new System.Drawing.Size(181, 30);
             this.Editar.TabIndex = 6;
@@ -120,7 +132,7 @@
             this.NuevoProductoBot.Name = "NuevoProductoBot";
             this.NuevoProductoBot.Size = new System.Drawing.Size(181, 32);
             this.NuevoProductoBot.TabIndex = 7;
-            this.NuevoProductoBot.Text = "Nuevo";
+            this.NuevoProductoBot.Text = "Nuevo producto";
             this.NuevoProductoBot.UseVisualStyleBackColor = true;
             this.NuevoProductoBot.Click += new System.EventHandler(this.NuevoProducto_Click);
             // 
@@ -146,10 +158,10 @@
             this.Catorce,
             this.Quince,
             this.Dieciseis});
-            this.MuestradataGrid.Location = new System.Drawing.Point(5, 285);
+            this.MuestradataGrid.Location = new System.Drawing.Point(12, 185);
             this.MuestradataGrid.Name = "MuestradataGrid";
             this.MuestradataGrid.RowTemplate.Height = 28;
-            this.MuestradataGrid.Size = new System.Drawing.Size(1136, 107);
+            this.MuestradataGrid.Size = new System.Drawing.Size(1840, 107);
             this.MuestradataGrid.TabIndex = 8;
             // 
             // Uno
@@ -249,62 +261,133 @@
             this.Dieciseis.Name = "Dieciseis";
             this.Dieciseis.Width = 137;
             // 
-            // flowLayoutPanel1
+            // Mensajes
             // 
-            this.flowLayoutPanel1.AutoScroll = true;
-            this.flowLayoutPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(622, 471);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(563, 494);
-            this.flowLayoutPanel1.TabIndex = 32;
+            this.Mensajes.AutoSize = true;
+            this.Mensajes.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Mensajes.Location = new System.Drawing.Point(161, 151);
+            this.Mensajes.Name = "Mensajes";
+            this.Mensajes.Size = new System.Drawing.Size(87, 25);
+            this.Mensajes.TabIndex = 33;
+            this.Mensajes.Text = "Mensaje";
             // 
-            // label1
+            // NuevaImagen
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(372, 197);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(51, 20);
-            this.label1.TabIndex = 33;
-            this.label1.Text = "label1";
-            // 
-            // AgregaFotoApanel
-            // 
-            this.AgregaFotoApanel.Location = new System.Drawing.Point(663, 425);
-            this.AgregaFotoApanel.Name = "AgregaFotoApanel";
-            this.AgregaFotoApanel.Size = new System.Drawing.Size(244, 40);
-            this.AgregaFotoApanel.TabIndex = 34;
-            this.AgregaFotoApanel.Text = "Agrega imagen a panel";
-            this.AgregaFotoApanel.UseVisualStyleBackColor = true;
-            this.AgregaFotoApanel.Click += new System.EventHandler(this.AgregaFotoApanel_Click);
+            this.NuevaImagen.Enabled = false;
+            this.NuevaImagen.Location = new System.Drawing.Point(1390, 48);
+            this.NuevaImagen.Name = "NuevaImagen";
+            this.NuevaImagen.Size = new System.Drawing.Size(180, 35);
+            this.NuevaImagen.TabIndex = 34;
+            this.NuevaImagen.Text = "Agrega una imagen";
+            this.NuevaImagen.UseVisualStyleBackColor = true;
+            this.NuevaImagen.Click += new System.EventHandler(this.NuevaImagen_Click);
             // 
             // flowLayoutPanel2
             // 
             this.flowLayoutPanel2.AutoScroll = true;
             this.flowLayoutPanel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(12, 471);
+            this.flowLayoutPanel2.Controls.Add(this.Foto);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(240, 350);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(563, 494);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(1454, 658);
             this.flowLayoutPanel2.TabIndex = 35;
             // 
-            // QuitaDePanel
+            // Foto
             // 
-            this.QuitaDePanel.Location = new System.Drawing.Point(941, 425);
-            this.QuitaDePanel.Name = "QuitaDePanel";
-            this.QuitaDePanel.Size = new System.Drawing.Size(244, 40);
-            this.QuitaDePanel.TabIndex = 36;
-            this.QuitaDePanel.Text = "Quitalo del panel";
-            this.QuitaDePanel.UseVisualStyleBackColor = true;
+            this.Foto.Location = new System.Drawing.Point(3, 3);
+            this.Foto.Name = "Foto";
+            this.Foto.Size = new System.Drawing.Size(889, 329);
+            this.Foto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.Foto.TabIndex = 0;
+            this.Foto.TabStop = false;
             // 
-            // Form1
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(236, 304);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(246, 25);
+            this.label2.TabIndex = 37;
+            this.label2.Text = "Las imagenes del producto";
+            // 
+            // Anterior
+            // 
+            this.Anterior.Enabled = false;
+            this.Anterior.Location = new System.Drawing.Point(646, 307);
+            this.Anterior.Name = "Anterior";
+            this.Anterior.Size = new System.Drawing.Size(160, 37);
+            this.Anterior.TabIndex = 38;
+            this.Anterior.Text = "<-- Anterior";
+            this.Anterior.UseVisualStyleBackColor = true;
+            this.Anterior.Click += new System.EventHandler(this.Anterior_Click);
+            // 
+            // Siguiente
+            // 
+            this.Siguiente.Enabled = false;
+            this.Siguiente.Location = new System.Drawing.Point(883, 307);
+            this.Siguiente.Name = "Siguiente";
+            this.Siguiente.Size = new System.Drawing.Size(160, 37);
+            this.Siguiente.TabIndex = 39;
+            this.Siguiente.Text = "Siguiente -->";
+            this.Siguiente.UseVisualStyleBackColor = true;
+            this.Siguiente.Click += new System.EventHandler(this.Siguiente_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(14, 389);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(77, 25);
+            this.label1.TabIndex = 40;
+            this.label1.Text = "Imagen";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(123, 389);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(34, 25);
+            this.label3.TabIndex = 41;
+            this.label3.Text = "de";
+            // 
+            // ImNum
+            // 
+            this.ImNum.AutoSize = true;
+            this.ImNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ImNum.Location = new System.Drawing.Point(95, 389);
+            this.ImNum.Name = "ImNum";
+            this.ImNum.Size = new System.Drawing.Size(23, 25);
+            this.ImNum.TabIndex = 42;
+            this.ImNum.Text = "#";
+            // 
+            // TotIm
+            // 
+            this.TotIm.AutoSize = true;
+            this.TotIm.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TotIm.Location = new System.Drawing.Point(164, 389);
+            this.TotIm.Name = "TotIm";
+            this.TotIm.Size = new System.Drawing.Size(23, 25);
+            this.TotIm.TabIndex = 43;
+            this.TotIm.Text = "#";
+            // 
+            // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1547, 1050);
-            this.Controls.Add(this.QuitaDePanel);
-            this.Controls.Add(this.flowLayoutPanel2);
-            this.Controls.Add(this.AgregaFotoApanel);
+            this.ClientSize = new System.Drawing.Size(1924, 1050);
+            this.Controls.Add(this.TotIm);
+            this.Controls.Add(this.ImNum);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.flowLayoutPanel1);
+            this.Controls.Add(this.Siguiente);
+            this.Controls.Add(this.Anterior);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.flowLayoutPanel2);
+            this.Controls.Add(this.NuevaImagen);
+            this.Controls.Add(this.Mensajes);
             this.Controls.Add(this.MuestradataGrid);
             this.Controls.Add(this.NuevoProductoBot);
             this.Controls.Add(this.Editar);
@@ -313,10 +396,14 @@
             this.Controls.Add(this.IdBuscar);
             this.Controls.Add(this.BuscaPorNombreBoton);
             this.Controls.Add(this.NombreBuscar);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "Principal";
+            this.Text = "Busca un producto y edita";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.MuestradataGrid)).EndInit();
+            this.flowLayoutPanel2.ResumeLayout(false);
+            this.flowLayoutPanel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Foto)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -348,11 +435,17 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Catorce;
         private System.Windows.Forms.DataGridViewTextBoxColumn Quince;
         private System.Windows.Forms.DataGridViewTextBoxColumn Dieciseis;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button AgregaFotoApanel;
+        private System.Windows.Forms.Label Mensajes;
+        private System.Windows.Forms.Button NuevaImagen;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
-        private System.Windows.Forms.Button QuitaDePanel;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button Anterior;
+        private System.Windows.Forms.Button Siguiente;
+        private System.Windows.Forms.PictureBox Foto;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label ImNum;
+        private System.Windows.Forms.Label TotIm;
     }
 }
 

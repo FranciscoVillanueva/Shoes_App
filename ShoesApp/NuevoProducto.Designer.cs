@@ -1,6 +1,6 @@
 ﻿namespace ShoesApp
 {
-    partial class Form2
+    partial class NuevoProducto
     {
         /// <summary>
         /// Required designer variable.
@@ -57,15 +57,19 @@
             this.textBox14 = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.AgregarProducto = new System.Windows.Forms.Button();
+            this.Mensaje = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // textBox1
             // 
+            this.textBox1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.textBox1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox1.Location = new System.Drawing.Point(143, 31);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 30);
+            this.textBox1.Size = new System.Drawing.Size(319, 30);
             this.textBox1.TabIndex = 0;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox8_TextChanged);
             // 
             // label1
             // 
@@ -89,11 +93,14 @@
             // 
             // textBox2
             // 
+            this.textBox2.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.textBox2.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox2.Location = new System.Drawing.Point(143, 80);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 30);
+            this.textBox2.Size = new System.Drawing.Size(319, 30);
             this.textBox2.TabIndex = 2;
+            this.textBox2.TextChanged += new System.EventHandler(this.textBox8_TextChanged);
             // 
             // label3
             // 
@@ -107,11 +114,14 @@
             // 
             // textBox3
             // 
+            this.textBox3.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.textBox3.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox3.Location = new System.Drawing.Point(143, 128);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 30);
+            this.textBox3.Size = new System.Drawing.Size(319, 30);
             this.textBox3.TabIndex = 4;
+            this.textBox3.TextChanged += new System.EventHandler(this.textBox8_TextChanged);
             // 
             // label4
             // 
@@ -125,11 +135,14 @@
             // 
             // textBox4
             // 
+            this.textBox4.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.textBox4.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox4.Location = new System.Drawing.Point(143, 182);
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 30);
+            this.textBox4.Size = new System.Drawing.Size(319, 30);
             this.textBox4.TabIndex = 6;
+            this.textBox4.TextChanged += new System.EventHandler(this.textBox8_TextChanged);
             // 
             // label5
             // 
@@ -143,11 +156,14 @@
             // 
             // textBox5
             // 
+            this.textBox5.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.textBox5.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox5.Location = new System.Drawing.Point(143, 228);
             this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(100, 30);
+            this.textBox5.Size = new System.Drawing.Size(319, 30);
             this.textBox5.TabIndex = 8;
+            this.textBox5.TextChanged += new System.EventHandler(this.textBox8_TextChanged);
             // 
             // label6
             // 
@@ -164,8 +180,9 @@
             this.textBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox6.Location = new System.Drawing.Point(144, 278);
             this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(100, 30);
+            this.textBox6.Size = new System.Drawing.Size(319, 30);
             this.textBox6.TabIndex = 10;
+            this.textBox6.TextChanged += new System.EventHandler(this.textBox8_TextChanged);
             // 
             // label7
             // 
@@ -182,8 +199,9 @@
             this.textBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox7.Location = new System.Drawing.Point(143, 323);
             this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(100, 30);
+            this.textBox7.Size = new System.Drawing.Size(319, 30);
             this.textBox7.TabIndex = 12;
+            this.textBox7.TextChanged += new System.EventHandler(this.textBox8_TextChanged);
             // 
             // label8
             // 
@@ -200,14 +218,15 @@
             this.textBox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox8.Location = new System.Drawing.Point(143, 376);
             this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(100, 30);
+            this.textBox8.Size = new System.Drawing.Size(319, 30);
             this.textBox8.TabIndex = 14;
+            this.textBox8.TextChanged += new System.EventHandler(this.textBox8_TextChanged);
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(265, 31);
+            this.label9.Location = new System.Drawing.Point(510, 31);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(128, 25);
             this.label9.TabIndex = 17;
@@ -216,16 +235,17 @@
             // textBox9
             // 
             this.textBox9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox9.Location = new System.Drawing.Point(446, 31);
+            this.textBox9.Location = new System.Drawing.Point(691, 31);
             this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(100, 30);
+            this.textBox9.Size = new System.Drawing.Size(304, 30);
             this.textBox9.TabIndex = 16;
+            this.textBox9.TextChanged += new System.EventHandler(this.textBox8_TextChanged);
             // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(265, 81);
+            this.label10.Location = new System.Drawing.Point(510, 81);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(143, 25);
             this.label10.TabIndex = 19;
@@ -234,16 +254,17 @@
             // textBox10
             // 
             this.textBox10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox10.Location = new System.Drawing.Point(446, 81);
+            this.textBox10.Location = new System.Drawing.Point(691, 81);
             this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(100, 30);
+            this.textBox10.Size = new System.Drawing.Size(304, 30);
             this.textBox10.TabIndex = 18;
+            this.textBox10.TextChanged += new System.EventHandler(this.textBox8_TextChanged);
             // 
             // label11
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(265, 132);
+            this.label11.Location = new System.Drawing.Point(510, 132);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(106, 25);
             this.label11.TabIndex = 21;
@@ -252,16 +273,17 @@
             // textBox11
             // 
             this.textBox11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox11.Location = new System.Drawing.Point(446, 129);
+            this.textBox11.Location = new System.Drawing.Point(691, 129);
             this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(100, 30);
+            this.textBox11.Size = new System.Drawing.Size(304, 30);
             this.textBox11.TabIndex = 20;
+            this.textBox11.TextChanged += new System.EventHandler(this.textBox8_TextChanged);
             // 
             // label12
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(265, 177);
+            this.label12.Location = new System.Drawing.Point(510, 177);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(128, 25);
             this.label12.TabIndex = 23;
@@ -270,16 +292,17 @@
             // textBox12
             // 
             this.textBox12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox12.Location = new System.Drawing.Point(446, 177);
+            this.textBox12.Location = new System.Drawing.Point(691, 177);
             this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(100, 30);
+            this.textBox12.Size = new System.Drawing.Size(304, 30);
             this.textBox12.TabIndex = 22;
+            this.textBox12.TextChanged += new System.EventHandler(this.textBox8_TextChanged);
             // 
             // label13
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(265, 228);
+            this.label13.Location = new System.Drawing.Point(510, 228);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(99, 25);
             this.label13.TabIndex = 25;
@@ -288,24 +311,26 @@
             // textBox13
             // 
             this.textBox13.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox13.Location = new System.Drawing.Point(446, 228);
+            this.textBox13.Location = new System.Drawing.Point(691, 228);
             this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(100, 30);
+            this.textBox13.Size = new System.Drawing.Size(304, 30);
             this.textBox13.TabIndex = 24;
+            this.textBox13.TextChanged += new System.EventHandler(this.textBox8_TextChanged);
             // 
             // textBox14
             // 
             this.textBox14.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox14.Location = new System.Drawing.Point(446, 278);
+            this.textBox14.Location = new System.Drawing.Point(691, 278);
             this.textBox14.Name = "textBox14";
-            this.textBox14.Size = new System.Drawing.Size(100, 30);
+            this.textBox14.Size = new System.Drawing.Size(304, 30);
             this.textBox14.TabIndex = 26;
+            this.textBox14.TextChanged += new System.EventHandler(this.textBox8_TextChanged);
             // 
             // label14
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(265, 278);
+            this.label14.Location = new System.Drawing.Point(510, 278);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(99, 25);
             this.label14.TabIndex = 27;
@@ -313,7 +338,7 @@
             // 
             // AgregarProducto
             // 
-            this.AgregarProducto.Location = new System.Drawing.Point(380, 444);
+            this.AgregarProducto.Location = new System.Drawing.Point(646, 461);
             this.AgregarProducto.Name = "AgregarProducto";
             this.AgregarProducto.Size = new System.Drawing.Size(197, 52);
             this.AgregarProducto.TabIndex = 32;
@@ -321,11 +346,22 @@
             this.AgregarProducto.UseVisualStyleBackColor = true;
             this.AgregarProducto.Click += new System.EventHandler(this.AgregarProducto_Click);
             // 
-            // Form2
+            // Mensaje
+            // 
+            this.Mensaje.AutoSize = true;
+            this.Mensaje.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Mensaje.Location = new System.Drawing.Point(641, 398);
+            this.Mensaje.Name = "Mensaje";
+            this.Mensaje.Size = new System.Drawing.Size(87, 25);
+            this.Mensaje.TabIndex = 33;
+            this.Mensaje.Text = "Mensaje";
+            // 
+            // NuevoProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1661, 619);
+            this.Controls.Add(this.Mensaje);
             this.Controls.Add(this.AgregarProducto);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.textBox14);
@@ -355,7 +391,7 @@
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox1);
-            this.Name = "Form2";
+            this.Name = "NuevoProducto";
             this.Text = "Form2";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Form2_Load);
@@ -395,5 +431,6 @@
         private System.Windows.Forms.TextBox textBox14;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Button AgregarProducto;
+        private System.Windows.Forms.Label Mensaje;
     }
 }

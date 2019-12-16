@@ -976,6 +976,67 @@
       <End Role="Products" EntitySet="Products" />
       <End Role="ImagesProduct" EntitySet="ImagesProduct" />
     </AssociationSet>
+    <FunctionImport Name="ACOB_GetSizeForEachProduct" ReturnType="Collection(DataProductsModel.ACOB_GetSizeForEachProduct_Result)">
+      <Parameter Name="idProducto" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ACOB_InsertSizeProduct">
+      <Parameter Name="idProduct" Mode="In" Type="Int32" />
+      <Parameter Name="idSize" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ACOB_UpdateSizeProduct">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+      <Parameter Name="idProduct" Mode="In" Type="Int32" />
+      <Parameter Name="idSize" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ADER1_InsertProduct">
+      <Parameter Name="IDType" Mode="In" Type="Int32" />
+      <Parameter Name="IDColor" Mode="In" Type="Int32" />
+      <Parameter Name="IdBrand" Mode="In" Type="Int32" />
+      <Parameter Name="IdProvider" Mode="In" Type="Int32" />
+      <Parameter Name="IdCatalog" Mode="In" Type="Int32" />
+      <Parameter Name="Title" Mode="In" Type="String" />
+      <Parameter Name="Nombre" Mode="In" Type="String" />
+      <Parameter Name="Description" Mode="In" Type="String" />
+      <Parameter Name="Observations" Mode="In" Type="String" />
+      <Parameter Name="PriceDistributor" Mode="In" Type="Decimal" />
+      <Parameter Name="PriceClient" Mode="In" Type="Decimal" />
+      <Parameter Name="PriceMember" Mode="In" Type="Decimal" />
+      <Parameter Name="IsEnabled" Mode="In" Type="Boolean" />
+      <Parameter Name="Keywords" Mode="In" Type="String" />
+      <Parameter Name="DateUpdate" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="FAVV_NombresDeProductos" ReturnType="Collection(String)" />
+    <FunctionImport Name="JRCV1_InsertImages">
+      <Parameter Name="idProduct" Mode="In" Type="Int32" />
+      <Parameter Name="Descripcion" Mode="In" Type="String" />
+      <Parameter Name="Image" Mode="In" Type="Binary" />
+      <Parameter Name="DateUpdate" Mode="In" Type="DateTime" />
+      <Parameter Name="IsEnable" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="FAVV_NombresDeProductos1" ReturnType="Collection(String)" />
+    <FunctionImport Name="FAVV_CatCatalogsSeason" ReturnType="Collection(String)" />
+    <FunctionImport Name="FAVV_DescripcionesDeCategotias" ReturnType="Collection(String)" />
+    <FunctionImport Name="FAVV_ImagenesDeProducto" ReturnType="Collection(Binary)">
+      <Parameter Name="elId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="FAVV_NombresColores" ReturnType="Collection(String)" />
+    <FunctionImport Name="FAVV_NombresMarcas" ReturnType="Collection(String)" />
+    <FunctionImport Name="FAVV_NombresProvedores" ReturnType="Collection(String)" />
+    <FunctionImport Name="FAVV_EncuentraIdBrandPorMarca" ReturnType="Collection(Int32)">
+      <Parameter Name="Name" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="FAVV_EncuentraIdCatalogPorDescripcion" ReturnType="Collection(Int32)">
+      <Parameter Name="Des" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="FAVV_EncuentraIdCatalogPorSeason" ReturnType="Collection(Int32)">
+      <Parameter Name="Season" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="FAVV_EncuentraIdColorPorName" ReturnType="Collection(Int32)">
+      <Parameter Name="Name" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="FAVV_EncuentraIdProviderPorNombre" ReturnType="Collection(Int32)">
+      <Parameter Name="Name" Mode="In" Type="String" />
+    </FunctionImport>
   </EntityContainer>
   <ComplexType Name="ACOB_SearchByIdOrName_Result">
     <Property Type="Int32" Name="Id" Nullable="false" />
@@ -1616,4 +1677,8 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <ComplexType Name="ACOB_GetSizeForEachProduct_Result">
+    <Property Type="Int32" Name="IdProduct" Nullable="false" />
+    <Property Type="String" Name="Code" Nullable="false" />
+  </ComplexType>
 </Schema>

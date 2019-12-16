@@ -16,40 +16,42 @@ namespace Negocio
         public void AgregaProucto(TextBox[] losid, TextBox[] nombres, TextBox[] precios) //, Byte[][] arBy)
         {
             int?[] id = new int?[5];
+            id[0] = d.EncuentraIdCatalogPorDescripcion(losid[0].Text);
+            id[1] = d.EncuentraIdColorPorNombre(losid[1].Text);
+            id[2] = d.EncuentraIdBrandPorMarca(losid[2].Text);
+            id[3] = d.EncuentraIdProviderPorNombre(losid[3].Text);
+            id[4] = d.EncuentraIdCatalogPorSeason(losid[4].Text);
             string[] nom = new string[5];
             Decimal?[] dec = new Decimal?[3];
-            for(int i = 0; i < 5; i++)
+            for (int i = 0; i < 5; i++)
             {
-                id[i] = int.Parse(losid[i].Text);
                 nom[i] = nombres[i].Text;
             }
             for (int i = 0; i < 3; i++)
             {
                 dec[i] = Decimal.Parse(precios[i].Text);
             }
-            d.Ag(id,nom,dec);
-            //Products produc = d.Busca(nombres[1].Text);
-            //int num = 4;
-            //foreach (var item in arBy)
-            //{
-            //    d.AgregaImagenes(produc,item,num);
-            //    num = num + 1;
-            //}
+            d.AgregaProducto(id,nom,dec);
         }
 
-        public void ActualizaProducto(int id, int idcol, int idcat, string nom, string des, byte[][] arBy)
+        public void ActualizaProducto(int id, int idcol, int idcat, string nom, string des)
         {         
             d.ActualizaProd(id, idcol, idcat, nom, des);
             Products produc = d.BuscaId(id);
-            foreach (var item in arBy)
-            {
-                d.AgregaImagenes(produc, item); //
-            }
+            //foreach (var item in arBy)
+            //{
+            //    d.AgregaImagenes(produc, item); //
+            //}
+        }
+
+        public void AgregaImagenProducto(int id ,string descripcion,byte[] im)
+        {
+            d.AgregaImagenes(id, descripcion, im);
         }
 
         public void EncuentraProdPorNombre(TextBox te, DataGridView ts)
         {   
-            ProdEnt p = En.Casteador(d.Busca(te.Text));
+            ProdEnt p = En.Casteador(d.BuscaNombre(te.Text));
             Muestra(ts, p);
         }
 
@@ -88,6 +90,11 @@ namespace Negocio
             {
                 c[i].Value = ar[i];
             }
+        }
+
+        public void CargaSugerenciaEnTextBox(TextBox ElTextBox, string[] LasSugerencias)
+        {
+            ElTextBox.AutoCompleteCustomSource.AddRange(LasSugerencias);
         }
     }
 }
