@@ -38,10 +38,6 @@ namespace Negocio
         {         
             d.ActualizaProd(id, idcol, idcat, nom, des);
             Products produc = d.BuscaId(id);
-            //foreach (var item in arBy)
-            //{
-            //    d.AgregaImagenes(produc, item); //
-            //}
         }
 
         public void AgregaImagenProducto(int id ,string descripcion,byte[] im)
@@ -68,7 +64,7 @@ namespace Negocio
 
         public void Muestra(DataGridView eltex, ProdEnt p)
         {
-            string[] ar = new string[16];
+            string[] ar = new string[15];
             ar[0] = p.Id + "";
             ar[1] = p.IdType + "";
             ar[2] = p.IdColor + "";
@@ -84,7 +80,6 @@ namespace Negocio
             ar[12] = "" + p.PriceMember;
             ar[13] = "" + p.IsEnabled;
             ar[14] = "" + p.Keywords;
-            ar[15] = "" + p.DataUpdate;
             var c = eltex.Rows[0].Cells;
             for(int i = 0; i < ar.Length; i++)
             {

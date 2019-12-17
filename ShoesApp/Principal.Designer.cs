@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.NombreBuscar = new System.Windows.Forms.TextBox();
             this.BuscaPorNombreBoton = new System.Windows.Forms.Button();
             this.BuscaPorIdBoton = new System.Windows.Forms.Button();
@@ -36,6 +38,20 @@
             this.Editar = new System.Windows.Forms.Button();
             this.NuevoProductoBot = new System.Windows.Forms.Button();
             this.MuestradataGrid = new System.Windows.Forms.DataGridView();
+            this.Mensajes = new System.Windows.Forms.Label();
+            this.NuevaImagen = new System.Windows.Forms.Button();
+            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.Foto = new System.Windows.Forms.PictureBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.Anterior = new System.Windows.Forms.Button();
+            this.Siguiente = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.ImNum = new System.Windows.Forms.Label();
+            this.TotIm = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.MensajeEdic = new System.Windows.Forms.Label();
+            this.MensajeEl = new System.Windows.Forms.Label();
             this.Uno = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Dos = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Tres = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -51,18 +67,6 @@
             this.Trece = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Catorce = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Quince = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Dieciseis = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Mensajes = new System.Windows.Forms.Label();
-            this.NuevaImagen = new System.Windows.Forms.Button();
-            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.Foto = new System.Windows.Forms.PictureBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.Anterior = new System.Windows.Forms.Button();
-            this.Siguiente = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.ImNum = new System.Windows.Forms.Label();
-            this.TotIm = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.MuestradataGrid)).BeginInit();
             this.flowLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Foto)).BeginInit();
@@ -156,110 +160,12 @@
             this.Doce,
             this.Trece,
             this.Catorce,
-            this.Quince,
-            this.Dieciseis});
+            this.Quince});
             this.MuestradataGrid.Location = new System.Drawing.Point(12, 185);
             this.MuestradataGrid.Name = "MuestradataGrid";
             this.MuestradataGrid.RowTemplate.Height = 28;
-            this.MuestradataGrid.Size = new System.Drawing.Size(1840, 107);
+            this.MuestradataGrid.Size = new System.Drawing.Size(1703, 107);
             this.MuestradataGrid.TabIndex = 8;
-            // 
-            // Uno
-            // 
-            this.Uno.HeaderText = "Id";
-            this.Uno.Name = "Uno";
-            this.Uno.ReadOnly = true;
-            this.Uno.Width = 59;
-            // 
-            // Dos
-            // 
-            this.Dos.HeaderText = "IdType";
-            this.Dos.Name = "Dos";
-            this.Dos.Width = 93;
-            // 
-            // Tres
-            // 
-            this.Tres.HeaderText = "IdColor";
-            this.Tres.Name = "Tres";
-            this.Tres.Width = 96;
-            // 
-            // Cuatro
-            // 
-            this.Cuatro.HeaderText = "IdBrand";
-            this.Cuatro.Name = "Cuatro";
-            this.Cuatro.Width = 102;
-            // 
-            // Cinco
-            // 
-            this.Cinco.HeaderText = "IdProvider";
-            this.Cinco.Name = "Cinco";
-            this.Cinco.Width = 116;
-            // 
-            // Seis
-            // 
-            this.Seis.HeaderText = "IdCatalog";
-            this.Seis.Name = "Seis";
-            this.Seis.Width = 114;
-            // 
-            // Siete
-            // 
-            this.Siete.HeaderText = "Title";
-            this.Siete.Name = "Siete";
-            this.Siete.Width = 74;
-            // 
-            // Ocho
-            // 
-            this.Ocho.HeaderText = "Nombre";
-            this.Ocho.Name = "Ocho";
-            this.Ocho.Width = 101;
-            // 
-            // Nueve
-            // 
-            this.Nueve.HeaderText = "Description";
-            this.Nueve.Name = "Nueve";
-            this.Nueve.Width = 125;
-            // 
-            // Diez
-            // 
-            this.Diez.HeaderText = "Observations";
-            this.Diez.Name = "Diez";
-            this.Diez.Width = 138;
-            // 
-            // Once
-            // 
-            this.Once.HeaderText = "PriceDistributor";
-            this.Once.Name = "Once";
-            this.Once.Width = 153;
-            // 
-            // Doce
-            // 
-            this.Doce.HeaderText = "PriceClient";
-            this.Doce.Name = "Doce";
-            this.Doce.Width = 120;
-            // 
-            // Trece
-            // 
-            this.Trece.HeaderText = "PriceMember";
-            this.Trece.Name = "Trece";
-            this.Trece.Width = 138;
-            // 
-            // Catorce
-            // 
-            this.Catorce.HeaderText = "IsEnabled";
-            this.Catorce.Name = "Catorce";
-            this.Catorce.Width = 117;
-            // 
-            // Quince
-            // 
-            this.Quince.HeaderText = "Keywords";
-            this.Quince.Name = "Quince";
-            this.Quince.Width = 113;
-            // 
-            // Dieciseis
-            // 
-            this.Dieciseis.HeaderText = "Date Update";
-            this.Dieciseis.Name = "Dieciseis";
-            this.Dieciseis.Width = 137;
             // 
             // Mensajes
             // 
@@ -373,11 +279,152 @@
             this.TotIm.TabIndex = 43;
             this.TotIm.Text = "#";
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(982, 151);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(791, 25);
+            this.label4.TabIndex = 44;
+            this.label4.Text = "Solo las columnas en gris pueden ser editadas, para guardar sus cambios, presione" +
+    " Editar";
+            // 
+            // MensajeEdic
+            // 
+            this.MensajeEdic.AutoSize = true;
+            this.MensajeEdic.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MensajeEdic.Location = new System.Drawing.Point(652, 151);
+            this.MensajeEdic.Name = "MensajeEdic";
+            this.MensajeEdic.Size = new System.Drawing.Size(154, 25);
+            this.MensajeEdic.TabIndex = 45;
+            this.MensajeEdic.Text = "Mensaje edición";
+            // 
+            // MensajeEl
+            // 
+            this.MensajeEl.AutoSize = true;
+            this.MensajeEl.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MensajeEl.Location = new System.Drawing.Point(982, 105);
+            this.MensajeEl.Name = "MensajeEl";
+            this.MensajeEl.Size = new System.Drawing.Size(159, 25);
+            this.MensajeEl.TabIndex = 46;
+            this.MensajeEl.Text = "Mensaje eliminar";
+            // 
+            // Uno
+            // 
+            this.Uno.HeaderText = "Id";
+            this.Uno.Name = "Uno";
+            this.Uno.ReadOnly = true;
+            this.Uno.Width = 59;
+            // 
+            // Dos
+            // 
+            this.Dos.HeaderText = "IdType";
+            this.Dos.Name = "Dos";
+            this.Dos.ReadOnly = true;
+            this.Dos.Width = 93;
+            // 
+            // Tres
+            // 
+            this.Tres.HeaderText = "IdColor";
+            this.Tres.Name = "Tres";
+            this.Tres.ReadOnly = true;
+            this.Tres.Width = 96;
+            // 
+            // Cuatro
+            // 
+            this.Cuatro.HeaderText = "IdBrand";
+            this.Cuatro.Name = "Cuatro";
+            this.Cuatro.ReadOnly = true;
+            this.Cuatro.Width = 102;
+            // 
+            // Cinco
+            // 
+            this.Cinco.HeaderText = "IdProvider";
+            this.Cinco.Name = "Cinco";
+            this.Cinco.ReadOnly = true;
+            this.Cinco.Width = 116;
+            // 
+            // Seis
+            // 
+            this.Seis.HeaderText = "IdCatalog";
+            this.Seis.Name = "Seis";
+            this.Seis.ReadOnly = true;
+            this.Seis.Width = 114;
+            // 
+            // Siete
+            // 
+            this.Siete.HeaderText = "Title";
+            this.Siete.Name = "Siete";
+            this.Siete.ReadOnly = true;
+            this.Siete.Width = 74;
+            // 
+            // Ocho
+            // 
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.Ocho.DefaultCellStyle = dataGridViewCellStyle1;
+            this.Ocho.HeaderText = "Nombre";
+            this.Ocho.Name = "Ocho";
+            this.Ocho.Width = 101;
+            // 
+            // Nueve
+            // 
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.Nueve.DefaultCellStyle = dataGridViewCellStyle2;
+            this.Nueve.HeaderText = "Description";
+            this.Nueve.Name = "Nueve";
+            this.Nueve.Width = 125;
+            // 
+            // Diez
+            // 
+            this.Diez.HeaderText = "Observations";
+            this.Diez.Name = "Diez";
+            this.Diez.ReadOnly = true;
+            this.Diez.Width = 138;
+            // 
+            // Once
+            // 
+            this.Once.HeaderText = "PriceDistributor";
+            this.Once.Name = "Once";
+            this.Once.ReadOnly = true;
+            this.Once.Width = 153;
+            // 
+            // Doce
+            // 
+            this.Doce.HeaderText = "PriceClient";
+            this.Doce.Name = "Doce";
+            this.Doce.ReadOnly = true;
+            this.Doce.Width = 120;
+            // 
+            // Trece
+            // 
+            this.Trece.HeaderText = "PriceMember";
+            this.Trece.Name = "Trece";
+            this.Trece.ReadOnly = true;
+            this.Trece.Width = 138;
+            // 
+            // Catorce
+            // 
+            this.Catorce.HeaderText = "IsEnabled";
+            this.Catorce.Name = "Catorce";
+            this.Catorce.ReadOnly = true;
+            this.Catorce.Width = 117;
+            // 
+            // Quince
+            // 
+            this.Quince.HeaderText = "Keywords";
+            this.Quince.Name = "Quince";
+            this.Quince.ReadOnly = true;
+            this.Quince.Width = 113;
+            // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1924, 1050);
+            this.Controls.Add(this.MensajeEl);
+            this.Controls.Add(this.MensajeEdic);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.TotIm);
             this.Controls.Add(this.ImNum);
             this.Controls.Add(this.label3);
@@ -399,6 +446,7 @@
             this.Name = "Principal";
             this.Text = "Busca un producto y edita";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Activated += new System.EventHandler(this.Principal_Activated);
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.MuestradataGrid)).EndInit();
             this.flowLayoutPanel2.ResumeLayout(false);
@@ -419,6 +467,20 @@
         private System.Windows.Forms.Button Editar;
         private System.Windows.Forms.Button NuevoProductoBot;
         private System.Windows.Forms.DataGridView MuestradataGrid;
+        private System.Windows.Forms.Label Mensajes;
+        private System.Windows.Forms.Button NuevaImagen;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button Anterior;
+        private System.Windows.Forms.Button Siguiente;
+        private System.Windows.Forms.PictureBox Foto;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label ImNum;
+        private System.Windows.Forms.Label TotIm;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label MensajeEdic;
+        private System.Windows.Forms.Label MensajeEl;
         private System.Windows.Forms.DataGridViewTextBoxColumn Uno;
         private System.Windows.Forms.DataGridViewTextBoxColumn Dos;
         private System.Windows.Forms.DataGridViewTextBoxColumn Tres;
@@ -434,18 +496,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Trece;
         private System.Windows.Forms.DataGridViewTextBoxColumn Catorce;
         private System.Windows.Forms.DataGridViewTextBoxColumn Quince;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Dieciseis;
-        private System.Windows.Forms.Label Mensajes;
-        private System.Windows.Forms.Button NuevaImagen;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button Anterior;
-        private System.Windows.Forms.Button Siguiente;
-        private System.Windows.Forms.PictureBox Foto;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label ImNum;
-        private System.Windows.Forms.Label TotIm;
     }
 }
 

@@ -26,6 +26,8 @@ namespace ShoesApp
         private void Form1_Load(object sender, EventArgs e)
         {
             Ne.CargaSugerenciaEnTextBox(NombreBuscar, d.NombresProductos());
+            MensajeEdic.Text = "";
+            MensajeEl.Text = "";
             Mensajes.Text = "";
             ImNum.Text = "";
             TotIm.Text = "";
@@ -65,7 +67,20 @@ namespace ShoesApp
 
         private void EliminaProd_Click(object sender, EventArgs e)
         {
-            Ne.EliminaProd(MuestradataGrid.Rows[0].Cells[0].Value.ToString());
+            Ne.CargaSugerenciaEnTextBox(NombreBuscar, d.NombresProductos());
+            try
+            {
+                Ne.EliminaProd(MuestradataGrid.Rows[0].Cells[0].Value.ToString());
+                MensajeEl.Text = "se elimino";
+                NuevaImagen.Enabled = false;
+                Editar.Enabled = false;
+                Mensajes.Text = "";
+                Borrale();
+            }
+            catch
+            {
+                MensajeEl.Text = "No se elimino";
+            }
         }
 
         private void NuevoProducto_Click(object sender, EventArgs e)
@@ -76,50 +91,37 @@ namespace ShoesApp
 
         private void Editar_Click(object sender, EventArgs e)
         {
-            Ne.ActualizaProducto(
-                int.Parse(MuestradataGrid.Rows[0].Cells[0].Value.ToString()),
-                int.Parse(MuestradataGrid.Rows[0].Cells[2].Value.ToString()),
-                int.Parse(MuestradataGrid.Rows[0].Cells[5].Value.ToString()),
-                MuestradataGrid.Rows[0].Cells[7].Value.ToString(),
-                MuestradataGrid.Rows[0].Cells[8].Value.ToString());
-            //PictureBox[] arPics = flowLayoutPanel1.Controls.OfType<PictureBox>().ToArray();
-            //int totaldePic = flowLayoutPanel1.Controls.OfType<PictureBox>().Count();
-            //byte[][] jaggedArray = new byte[totaldePic][];
-            //for (int i = 0; i < totaldePic; i++)
-            //{
-            //    MemoryStream laimag = new MemoryStream();
-            //    arPics[i].Image.Save(laimag, System.Drawing.Imaging.ImageFormat.Jpeg);
-            //    jaggedArray[i] = laimag.ToArray();
-            //}
-        }
+            Ne.CargaSugerenciaEnTextBox(NombreBuscar, d.NombresProductos());
+            try
+            {
+                Ne.ActualizaProducto(
+                    int.Parse(MuestradataGrid.Rows[0].Cells[0].Value.ToString()),
+                    int.Parse(MuestradataGrid.Rows[0].Cells[2].Value.ToString()),
+                    int.Parse(MuestradataGrid.Rows[0].Cells[5].Value.ToString()),
+                    MuestradataGrid.Rows[0].Cells[7].Value.ToString(),
+                    MuestradataGrid.Rows[0].Cells[8].Value.ToString());
+                MensajeEdic.Text = "Se edito el producto";
+            }
+            catch
+            {
+                MensajeEdic.Text = "No se edito";
+            }
 
-        //private void AgregaFotoApanel_Click(object sender, EventArgs e)
-        //{
-        //PictureBox p = new PictureBox()
-        //{
-        //    BorderStyle = BorderStyle.FixedSingle,
-        //    Height = 600,
-        //    Width = 1600,
-        //    //Top = Height * flowLayoutPanel1.Controls.Count,
-        //    SizeMode = PictureBoxSizeMode.AutoSize
-        //};
-        //flowLayoutPanel1.Controls.Add(p);
-        //OpenFileDialog open = new OpenFileDialog();
-        //if (open.ShowDialog() == DialogResult.OK)
-        //{
-        //    p.Image = new Bitmap(open.OpenFile());
-        //}
-        //}
+        }
 
         public void ManejadorDeMensaje(Label eltex, string mensaje, Boolean habilita)
         {
-            Anterior.Enabled = false;
-            Siguiente.Enabled = false;
-            Foto.Image = null;
+            MensajeEl.Text = "";
+            MensajeEdic.Text = "";
             eltex.Text = mensaje;
             Editar.Enabled = habilita;
             EliminaProd.Enabled = habilita;
             NuevaImagen.Enabled = habilita;
+            ControlParaHabilitarBotonesImagen(habilita);
+        }
+
+        public void ControlParaHabilitarBotonesImagen(Boolean habilita)
+        {
             if (habilita && imagenes.Length > 1)
             {
                 Anterior.Enabled = true;
@@ -128,11 +130,21 @@ namespace ShoesApp
                 TotIm.Text = imagenes.Length + "";
                 MueveImagen(0);
             }
-            if (habilita && imagenes.Length == 1)
+            else if (habilita && imagenes.Length == 1)
             {
                 MueveImagen(0);
                 ImNum.Text = "1";
                 TotIm.Text = "1";
+                Anterior.Enabled = false;
+                Siguiente.Enabled = false;
+            }
+            else
+            {
+                Anterior.Enabled = false;
+                Siguiente.Enabled = false;
+                Foto.Image = null;
+                ImNum.Text = "0";
+                TotIm.Text = "0";
             }
         }
 
@@ -169,6 +181,29 @@ namespace ShoesApp
             {
                 MueveImagen(num - 1);
                 ImNum.Text = num + "";
+            }
+        }
+
+        private void Principal_Activated(object sender, EventArgs e)
+        {
+            try
+            {
+                imagenes = d.ImagenesPorIdDeProducto(
+                   int.Parse(MuestradataGrid.Rows[0].Cells[0].Value.ToString()));
+                ControlParaHabilitarBotonesImagen(true);
+            }
+            catch
+            {
+
+            }
+        }
+
+        public void Borrale()
+        {
+            var c = MuestradataGrid.Rows[0].Cells;
+            for (int i = 0; i < c.Count; i++)
+            {
+                c[i].Value = "";
             }
         }
     }
